@@ -46,7 +46,7 @@
 					word = subwords.join('-');
 					words_arr[i] = word;
 				});
-				text = words.join('');
+				text = words.join(' ');
 				e.text(text);
 			}
 		});
