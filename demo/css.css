@@ -1,0 +1,20 @@
+body{
+    font-family: Verdana, Tahoma, sans-serif;
+}
+.narrow {
+    max-width: 7em;
+    background-color: gold;
+    display: inline-block;
+    padding: 1em;
+    border-radius: 1em;
+}
+.narrow + .narrow {
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+.button-add:before{
+    content: '+ ';
+}
+.button-remove:before{
+    content: '− ';
+}

@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-	<meta charset="UTF-8">
-	<title>WordWrapper — расстановщик переносов</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="jQuery.WordWrapper.js"></script>
-	<script src="js.js"></script>
-	<style>
-		.narrow {
-			max-width: 3em;
-			background-color: gold;
-			color: black;
-			display: inline-block;
-			padding: 1em;
-		}
-
-		.narrow + .narrow {
-			margin-left: 1em;
-			margin-bottom: 1em;
-		}
-	</style>
+	<title>WordWrapper — расстановщик мягких переносов</title>
+	<meta name="copyright" content="2015, © Pavel Lysenko" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="demo/css.css">
 </head>
 <body>
-	<button class="doWordWrap" type="button">Попереносить</button>
+	<h1>WordWrapper — расстановщик мягких переносов</h1>
+
+	<p>
+		TODO: полное соответсвие
+		<a target="_blank"
+		   rel="nofollow"
+		   href="http://www.gramota.ru/spravka/rules?rub=perenos">
+			правилам русской орфографии и пунктуации (1956)
+		</a>
+	</p>
+
+	<h2>Демо</h2>
+	<p>
+		<label>
+			Ширина блоков
+			<input min="4" max="40" value="5" id="widthChanger" type="range"/>
+		</label>
+	</p>
+
+	<p>
+		<button class="button button-add" id="addSoftHyphens" type="button">Расставить мягкие переносы</button>
+
+		<button class="button button-remove" id="removeSoftHyphens" type="button">Убрать мягкие переносы</button>
+	</p>
+
 	<p>
 		<span class="narrow">метоксихлордиэтиламинометилбутиламиноакридинами</span>
 		<span class="narrow">научно-исследовательский</span>
@@ -51,5 +60,8 @@
 		<span class="narrow">административно-территориальный</span>
 		<span class="narrow">диметилалкилбензиламмонийхлорид</span>
 	</p>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="jQuery.WordWrapper.js"></script>
+	<script src="demo/js.js"></script>
 </body>
 </html>
