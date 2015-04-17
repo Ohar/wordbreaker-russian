@@ -1,9 +1,9 @@
 $(function () {
 	$('#addSoftHyphens').click(function () {
-		$('.narrow').wordwrapper();
+		$('.narrow').add('.constantine').wordwrapper();
 	});
 	$('#removeSoftHyphens').click(function () {
-		$('.narrow').each(function(i, e){
+		$('.narrow').add('.constantine').each(function(i, e){
 			var text = $(e).text();
 			$(e).text(text.replace(/\u00AD/g, ''));
 		})

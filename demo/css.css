@@ -1,6 +1,14 @@
 body{
     font-family: Verdana, Tahoma, sans-serif;
 }
+.constantine {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 5em;
+    overflow: auto;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
 .narrow {
     max-width: 7em;
     background-color: gold;
