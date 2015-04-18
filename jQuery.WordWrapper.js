@@ -3,7 +3,7 @@
 
  https://github.com/Ohar/jQuery.WordWrapper.js
 
- Copyright 2015, Pavel Lysenko
+ © 2015, Pavel Lysenko aka Ohar
 
  Released under the MIT license.
  http://www.opensource.org/licenses/mit-license.php
@@ -24,32 +24,55 @@
 
 		return this.each(function () {
 			var $this = $(this);
-
 			wordwrapper($this);
-
-			function wordwrapper(e) {
-				var text = e.text(),
-					words = text.split(' ');
-
-				words.forEach(function(word, i, words_arr){
-					var subwords = word.split('-');
-					subwords.forEach(function(subword, j, subwords_arr){
-						var letters = subword.split('');
-						letters.forEach(function(letter, k, letters_arr){
-							if (vowels.indexOf(letter) + 1) {
-								letters_arr[k] = letter + SOFT_HYPHEN;
-							}
-						});
-						subword = letters.join('');
-						subwords_arr[j] = subword;
-					});
-					word = subwords.join('-');
-					words_arr[i] = word;
-				});
-				text = words.join(' ');
-				e.text(text);
-			}
 		});
 
+        function wordwrapper(e) {
+            var text = e.text(),
+                words = text.split(' ');
+
+            words.forEach(function(word, i, words_arr){
+                var letters = word.split('');
+                
+                letters.forEach(function(letter, j, letters_arr){
+                    if (isNeedHyphen(letter, j, letters_arr)) {
+                        letters_arr[j] = letter + '×' + SOFT_HYPHEN;
+                    }
+                });
+                
+                word = letters.join('');
+                words_arr[i] = word;
+            });
+            
+            text = words.join(' ');
+            e.text(text);
+        }
+            
+        function isNeedHyphen(letter, pos, letters){
+            return (
+                isVowel(letter) && 
+                !ifLastVowel(pos, letters) && 
+                !ifShortEnding(pos, letters)
+            );
+        }
+        
+        function isVowel(letter){
+            return vowels.indexOf(letter) + 1;
+        }
+        
+        function ifLastVowel(pos, arr){
+            var i, result = true;
+            for (i = pos + 1; i < arr.length; i++){
+                if (isVowel(arr[i])){
+                    result = false;
+                    break;
+                }
+            }
+            return result;
+        }
+        
+        function ifShortEnding(pos, arr){
+            return pos >= arr.length - 2;
+        }
 	};
 })(jQuery);
