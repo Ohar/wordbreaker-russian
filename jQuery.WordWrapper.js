@@ -36,7 +36,7 @@
                 
                 letters.forEach(function(letter, j, letters_arr){
                     if (isNeedHyphen(letter, j, letters_arr)) {
-                        letters_arr[j] = letter + '×' + SOFT_HYPHEN;
+                        letters_arr[j] = letter + SOFT_HYPHEN;
                     }
                 });
                 
