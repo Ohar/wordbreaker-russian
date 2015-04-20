@@ -17,7 +17,7 @@
 
 		var vowels = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'],
 			consonants = ['б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п',
-				'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ь'],
+			              'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ь'],
 			SOFT_HYPHEN = "\u00AD";
 
 		options = $.extend({}, options);
@@ -27,52 +27,50 @@
 			wordwrapper($this);
 		});
 
-        function wordwrapper(e) {
-            var text = e.text(),
-                words = text.split(' ');
+		function wordwrapper(e) {
+			var text = e.text(),
+				words = text.split(' ');
 
-            words.forEach(function(word, i, words_arr){
-                var letters = word.split('');
-                
-                letters.forEach(function(letter, j, letters_arr){
-                    if (isNeedHyphen(letter, j, letters_arr)) {
-                        letters_arr[j] = letter + SOFT_HYPHEN;
-                    }
-                });
-                
-                word = letters.join('');
-                words_arr[i] = word;
-            });
-            
-            text = words.join(' ');
-            e.text(text);
-        }
-            
-        function isNeedHyphen(letter, pos, letters){
-            return (
-                isVowel(letter) && 
-                !ifLastVowel(pos, letters) && 
-                !ifShortEnding(pos, letters)
-            );
-        }
-        
-        function isVowel(letter){
-            return vowels.indexOf(letter) + 1;
-        }
-        
-        function ifLastVowel(pos, arr){
-            var i, result = true;
-            for (i = pos + 1; i < arr.length; i++){
-                if (isVowel(arr[i])){
-                    result = false;
-                    break;
-                }
-            }
-            return result;
-        }
-        
-        function ifShortEnding(pos, arr){
-            return pos >= arr.length - 2;
-        }
+			words.forEach(function (word, i, words_arr) {
+				var letters = word.split('');
+
+				letters.forEach(function (letter, j, letters_arr) {
+					if (isNeedHyphen(letter, j, letters_arr)) {
+						letters_arr[j] = letter + SOFT_HYPHEN;
+					}
+				});
+
+				word = letters.join('');
+				words_arr[i] = word;
+			});
+
+			text = words.join(' ');
+			e.text(text);
+		}
+
+		function isNeedHyphen(letter, pos, letters) {
+			return (
+			isVowel(letter) && !ifLastVowel(pos, letters) && !ifShortEnding(pos, letters)
+			);
+		}
+
+		function isVowel(letter) {
+			return vowels.indexOf(letter) + 1;
+		}
+
+		function ifLastVowel(pos, arr) {
+			var i, result = true;
+			for (i = pos + 1; i < arr.length; i++) {
+				if (isVowel(arr[i])) {
+					result = false;
+					break;
+				}
+			}
+			return result;
+		}
+
+		function ifShortEnding(pos, arr) {
+			return pos >= arr.length - 2;
+		}
 	};
 })(jQuery);

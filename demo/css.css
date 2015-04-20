@@ -1,6 +1,7 @@
-body{
+body {
     font-family: Verdana, Tahoma, sans-serif;
 }
+
 .constantine {
     display: inline-block;
     vertical-align: middle;
@@ -9,20 +10,25 @@ body{
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;
 }
+
 .narrow {
     max-width: 7em;
     background-color: gold;
     display: inline-block;
     padding: 1em;
+    margin-bottom: 1em;
     border-radius: 1em;
+    vertical-align: middle;
 }
+
 .narrow + .narrow {
     margin-left: 1em;
-    margin-bottom: 1em;
 }
-.button-add:before{
+
+.button-add:before {
     content: '+ ';
 }
-.button-remove:before{
+
+.button-remove:before {
     content: '− ';
 }
