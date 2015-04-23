@@ -48,9 +48,12 @@
 			e.text(text);
 		}
 
-		function isNeedHyphen(letter, pos, letters) {
+		function isNeedHyphen(letter, pos, arr) {
 			return (
-			isVowel(letter) && !ifLastVowel(pos, letters) && !ifShortEnding(pos, letters)
+			    isVowel(letter) && 
+			    !ifLastVowel(pos, arr) && 
+			    !ifShortEnding(pos, arr) &&
+			    !ifIKratkayaAfter(pos, arr)
 			);
 		}
 
@@ -71,6 +74,11 @@
 
 		function ifShortEnding(pos, arr) {
 			return pos >= arr.length - 2;
+		}
+
+		function ifIKratkayaAfter(pos, arr) {
+		    var next = arr[pos + 1];
+			return next === 'й' || next === 'Й';
 		}
 	};
 })(jQuery);
