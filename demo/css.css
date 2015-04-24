@@ -1,5 +1,6 @@
 body {
     font-family: Verdana, Tahoma, sans-serif;
+    overflow-x: hidden;
 }
 
 .constantine {
