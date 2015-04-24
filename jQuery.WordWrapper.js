@@ -50,10 +50,10 @@
 
 		function isNeedHyphen(letter, pos, arr) {
 			return (
-			    isVowel(letter) && 
-			    !ifLastVowel(pos, arr) && 
-			    !ifShortEnding(pos, arr) &&
-			    !ifIKratkayaAfter(pos, arr)
+				isVowel(letter)
+				&& !ifLastVowel(pos, arr)
+				&& !ifShortEnding(pos, arr)
+				&& !ifIKratkayaAfter(pos, arr)
 			);
 		}
 
@@ -77,7 +77,7 @@
 		}
 
 		function ifIKratkayaAfter(pos, arr) {
-		    var next = arr[pos + 1];
+			var next = arr[pos + 1];
 			return next === 'й' || next === 'Й';
 		}
 	};
