@@ -18,7 +18,63 @@
 		var vowels = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'],
 			consonants = ['б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п',
 			              'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ь'],
-			SOFT_HYPHEN = "\u00AD";
+			SOFT_HYPHEN = "\u00AD",
+			sonorLvls = {
+				'а': 4,
+				'е': 4,
+				'ё': 4,
+				'и': 4,
+				'о': 4,
+				'у': 4,
+				'ы': 4,
+				'э': 4,
+				'ю': 4,
+				'я': 4,
+
+				'й': 3.5,
+
+				'л': 3,
+				'м': 3,
+				'н': 3,
+				'р': 3,
+
+				'б': 2,
+				'г': 2,
+				'д': 2,
+				'ж': 2,
+				'з': 2,
+
+				'в': 1.5,
+
+				'к': 1,
+				'х': 1,
+				'п': 1,
+				'ф': 1,
+				'т': 1,
+				'с': 1,
+				'ш': 1,
+				'ч': 1,
+				'ц': 1,
+
+			};
+
+		var rules = {
+			checkSonorLevel: checkSonorLevel,
+			isConsonantWithNextVowel: isConsonantWithNextVowel,
+			ifLastVowel: ifLastVowel,
+			ifShortEnding: ifShortEnding,
+			ifVowelWithNextKratkaya: ifVowelWithNextKratkaya,
+			isConsonantWithNextLetterSign: isConsonantWithNextLetterSign,
+			isDoubleConsonantWithVowels: isDoubleConsonantWithVowels,
+		};
+
+		var utils = {
+			isNeedHyphen: isNeedHyphen,
+			checkSonorLevel: checkSonorLevel,
+			isVowel: isVowel,
+			isConsonant: isConsonant,
+			getLetter: getLetter,
+		};
 
 		return this.each(function () {
 			var $this = $(this);
@@ -33,8 +89,8 @@
 				var letters = word.split('');
 
 				letters.forEach(function (letter, j, letters_arr) {
-					if (isNeedHyphen(letter, j, letters_arr)) {
-						letters_arr[j] = letter + SOFT_HYPHEN;
+					if (utils.isNeedHyphen(j, letters_arr)) {
+						letters_arr[j] += '×' + SOFT_HYPHEN;
 					}
 				});
 
@@ -46,16 +102,21 @@
 			e.text(text);
 		}
 
-		function isNeedHyphen(letter, pos, arr) {
-			return (isVowel(letter)
-			     && !ifLastVowel(pos, arr)
-			     && !ifShortEnding(pos, arr)
-			     && !ifIKratkayaAfter(pos, arr)
+		function isNeedHyphen(pos, arr) {
+			return (rules.checkSonorLevel(pos, arr)
+			    && !rules.isConsonantWithNextVowel(pos, arr)
+			    && !rules.ifLastVowel(pos, arr)
+			    && !rules.ifShortEnding(pos, arr)
+			    && !rules.ifVowelWithNextKratkaya(pos, arr)
+			    && !rules.isConsonantWithNextLetterSign(pos, arr)
+			    //&& !rules.isDoubleConsonantWithVowels(pos, arr)
 			);
 		}
 
-		function isVowel(letter) {
-			return vowels.indexOf(letter) + 1;
+		function isConsonantWithNextVowel(pos, arr) {
+			var cur = utils.getLetter(arr, pos),
+			    next = utils.getLetter(arr, pos + 1);
+			return utils.isConsonant(cur) && utils.isVowel(next);
 		}
 
 		function ifLastVowel(pos, arr) {
@@ -63,7 +124,7 @@
 			    result = true;
 
 			for (i = pos + 1; i < arr.length; i++) {
-				if (isVowel(arr[i])) {
+				if (utils.isVowel(arr[i])) {
 					result = false;
 					break;
 				}
@@ -75,9 +136,53 @@
 			return pos >= arr.length - 2;
 		}
 
-		function ifIKratkayaAfter(pos, arr) {
-			var next = arr[pos + 1];
-			return next === 'й' || next === 'Й';
+		function ifVowelWithNextKratkaya(pos, arr) {
+			var cur = utils.getLetter(arr, pos),
+			    next = utils.getLetter(arr, pos + 1);
+			return utils.isVowel(cur) && next === 'й';
 		}
+
+		function isConsonantWithNextLetterSign(pos, arr) {
+			var cur = utils.getLetter(arr, pos),
+			    next = utils.getLetter(arr, pos + 1);
+			return utils.isConsonant(cur) && (next === 'ь' || next === 'ъ');
+		}
+
+		function isDoubleConsonantWithVowels(pos, arr) {
+			var prev = utils.getLetter(arr, pos - 1),
+				cur = utils.getLetter(arr, pos),
+			    next = utils.getLetter(arr, pos + 1);
+			    nextNext = utils.getLetter(arr, pos + 2);
+
+			return (cur === next)
+				&& utils.isVowel(prev)
+				&& utils.isVowel(nextNext);
+		}
+
+		function checkSonorLevel(pos, arr) {
+			var cur = utils.getLetter(arr, pos),
+			    prev = utils.getLetter(arr, pos - 1),
+			    next = utils.getLetter(arr, pos + 1),
+			    sonor = {
+			    	prev: sonorLvls[prev],
+			    	cur: sonorLvls[cur],
+			    	next: sonorLvls[next],
+			    };
+
+			return (sonor.prev < sonor.cur) && (sonor.cur > sonor.next);
+		}
+
+		function isConsonant(s) {
+			return consonants.indexOf(s.toLowerCase()) + 1;
+		}
+
+		function isVowel(s) {
+			return vowels.indexOf(s.toLowerCase()) + 1;
+		}
+
+		function getLetter(arr, pos) {
+			return arr[pos] && arr[pos].toLowerCase()
+		}
+
 	};
 })(jQuery);
