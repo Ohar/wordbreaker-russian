@@ -17,7 +17,7 @@
 
 		var vowels = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'],
 			consonants = ['б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п',
-				'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ь'],
+			              'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ь'],
 			SOFT_HYPHEN = "\u00AD";
 
 		return this.each(function () {
@@ -27,7 +27,7 @@
 
 		function wordwrapper(e) {
 			var text = e.text(),
-				words = text.split(' ');
+			    words = text.split(' ');
 
 			words.forEach(function (word, i, words_arr) {
 				var letters = word.split('');
@@ -48,9 +48,9 @@
 
 		function isNeedHyphen(letter, pos, arr) {
 			return (isVowel(letter)
-			&& !ifLastVowel(pos, arr)
-			&& !ifShortEnding(pos, arr)
-			&& !ifIKratkayaAfter(pos, arr)
+			     && !ifLastVowel(pos, arr)
+			     && !ifShortEnding(pos, arr)
+			     && !ifIKratkayaAfter(pos, arr)
 			);
 		}
 
@@ -60,7 +60,7 @@
 
 		function ifLastVowel(pos, arr) {
 			var i,
-				result = true;
+			    result = true;
 
 			for (i = pos + 1; i < arr.length; i++) {
 				if (isVowel(arr[i])) {
