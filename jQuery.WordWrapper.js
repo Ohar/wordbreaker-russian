@@ -61,7 +61,7 @@
 		var rules = {
 			checkSonorLevel: checkSonorLevel,
 			isConsonantWithNextVowel: isConsonantWithNextVowel,
-			ifLastVowel: ifLastVowel,
+			ifNoVowelsBeforeOrAfter: ifNoVowelsBeforeOrAfter ,
 			ifShortEnding: ifShortEnding,
 			ifVowelWithNextKratkaya: ifVowelWithNextKratkaya,
 			isConsonantWithNextLetterSign: isConsonantWithNextLetterSign,
@@ -105,7 +105,7 @@
 		function isNeedHyphen(pos, arr) {
 			return (rules.checkSonorLevel(pos, arr)
 			    && !rules.isConsonantWithNextVowel(pos, arr)
-			    && !rules.ifLastVowel(pos, arr)
+			    && !rules.ifNoVowelsBeforeOrAfter(pos, arr)
 			    && !rules.ifShortEnding(pos, arr)
 			    && !rules.ifVowelWithNextKratkaya(pos, arr)
 			    && !rules.isConsonantWithNextLetterSign(pos, arr)
@@ -119,11 +119,19 @@
 			return utils.isConsonant(cur) && utils.isVowel(next);
 		}
 
-		function ifLastVowel(pos, arr) {
+		function ifNoVowelsBeforeOrAfter(pos, arr) {
 			var i,
+			    len = arr.length,
 			    result = true;
 
-			for (i = pos + 1; i < arr.length; i++) {
+			for (i = pos + 1; i < len; i++) {
+				if (utils.isVowel(arr[i])) {
+					result = false;
+					break;
+				}
+			}
+
+			for (i = pos - 1; i >= 0; i--) {
 				if (utils.isVowel(arr[i])) {
 					result = false;
 					break;
