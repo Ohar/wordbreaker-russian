@@ -65,11 +65,11 @@
 
 		function isNeedHyphen(pos, arr) {
 			return (!rules.isConsonantWithNextVowel(pos, arr)
-			    && !rules.ifNoVowelsBeforeOrAfter(pos, arr)
-			    && !rules.ifShortEnding(pos, arr)
-			    && !rules.ifVowelWithNextKratkaya(pos, arr)
-			    && !rules.isConsonantWithNextLetterSign(pos, arr)
-			    //&& !rules.isDoubleConsonantWithVowels(pos, arr)
+			    &&  !rules.ifNoVowelsBeforeOrAfter(pos, arr)
+			    &&  !rules.ifShortEnding(pos, arr)
+			    &&  !rules.ifVowelWithNextKratkaya(pos, arr)
+			    &&  !rules.isConsonantWithNextLetterSign(pos, arr)
+			    &&  !rules.isDoubleConsonantWithVowels(pos, arr)
 			);
 		}
 
@@ -117,14 +117,15 @@
 		}
 
 		function isDoubleConsonantWithVowels(pos, arr) {
-			var prev = utils.getLetter(arr, pos - 1),
-				cur = utils.getLetter(arr, pos),
-			    next = utils.getLetter(arr, pos + 1);
-			    nextNext = utils.getLetter(arr, pos + 2);
+			var cur = utils.getLetter(arr, pos),
+			    next = utils.getLetter(arr, pos + 1),
+			    afterNext = utils.getLetter(arr, pos + 2),
+			    afterAfterNext = utils.getLetter(arr, pos + 2);
 
-			return (cur === next)
-				&& utils.isVowel(prev)
-				&& utils.isVowel(nextNext);
+			return (next === nextNext)
+				&& utils.isConsonant(next)
+				&& utils.isVowel(cur)
+				&& utils.isVowel(afterAfterNext);
 		}
 
 		function isConsonant(s) {
