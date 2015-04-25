@@ -18,48 +18,9 @@
 		var vowels = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'],
 			consonants = ['б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п',
 			              'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ь'],
-			SOFT_HYPHEN = "\u00AD",
-			sonorLvls = {
-				'а': 4,
-				'е': 4,
-				'ё': 4,
-				'и': 4,
-				'о': 4,
-				'у': 4,
-				'ы': 4,
-				'э': 4,
-				'ю': 4,
-				'я': 4,
-
-				'й': 3.5,
-
-				'л': 3,
-				'м': 3,
-				'н': 3,
-				'р': 3,
-
-				'б': 2,
-				'г': 2,
-				'д': 2,
-				'ж': 2,
-				'з': 2,
-
-				'в': 1.5,
-
-				'к': 1,
-				'х': 1,
-				'п': 1,
-				'ф': 1,
-				'т': 1,
-				'с': 1,
-				'ш': 1,
-				'ч': 1,
-				'ц': 1,
-
-			};
+			SOFT_HYPHEN = "\u00AD";
 
 		var rules = {
-			checkSonorLevel: checkSonorLevel,
 			isConsonantWithNextVowel: isConsonantWithNextVowel,
 			ifNoVowelsBeforeOrAfter: ifNoVowelsBeforeOrAfter ,
 			ifShortEnding: ifShortEnding,
@@ -103,8 +64,7 @@
 		}
 
 		function isNeedHyphen(pos, arr) {
-			return (rules.checkSonorLevel(pos, arr)
-			    && !rules.isConsonantWithNextVowel(pos, arr)
+			return (!rules.isConsonantWithNextVowel(pos, arr)
 			    && !rules.ifNoVowelsBeforeOrAfter(pos, arr)
 			    && !rules.ifShortEnding(pos, arr)
 			    && !rules.ifVowelWithNextKratkaya(pos, arr)
@@ -165,19 +125,6 @@
 			return (cur === next)
 				&& utils.isVowel(prev)
 				&& utils.isVowel(nextNext);
-		}
-
-		function checkSonorLevel(pos, arr) {
-			var cur = utils.getLetter(arr, pos),
-			    prev = utils.getLetter(arr, pos - 1),
-			    next = utils.getLetter(arr, pos + 1),
-			    sonor = {
-			    	prev: sonorLvls[prev],
-			    	cur: sonorLvls[cur],
-			    	next: sonorLvls[next],
-			    };
-
-			return (sonor.prev < sonor.cur) && (sonor.cur > sonor.next);
 		}
 
 		function isConsonant(s) {
