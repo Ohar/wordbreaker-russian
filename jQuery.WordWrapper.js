@@ -27,6 +27,7 @@
 			ifVowelWithNextKratkaya: ifVowelWithNextKratkaya,
 			isConsonantWithNextLetterSign: isConsonantWithNextLetterSign,
 			isDoubleConsonantWithVowels: isDoubleConsonantWithVowels,
+			ifOneSyllablePrefixWithNextConsonant: ifOneSyllablePrefixWithNextConsonant,
 		};
 
 		var utils = {
@@ -35,6 +36,7 @@
 			isVowel: isVowel,
 			isConsonant: isConsonant,
 			getLetter: getLetter,
+			ifInsideOfOneSyllablePrefix: ifInsideOfOneSyllablePrefix,
 		};
 
 		return this.each(function () {
@@ -70,6 +72,7 @@
 			    &&  !rules.ifVowelWithNextKratkaya(pos, arr)
 			    &&  !rules.isConsonantWithNextLetterSign(pos, arr)
 			    &&  !rules.isDoubleConsonantWithVowels(pos, arr)
+			    &&  !rules.ifOneSyllablePrefixWithNextConsonant(pos, arr)
 			);
 		}
 
@@ -138,6 +141,19 @@
 
 		function getLetter(arr, pos) {
 			return arr[pos] && arr[pos].toLowerCase()
+		}
+		
+		// TODO:
+		// При переносе слов с приставками нельзя 
+		// разбивать односложную приставку, если 
+		// за приставкой идет согласный.
+		function ifOneSyllablePrefixWithNextConsonant(arr, pos) {
+			var next = utils.getLetter(arr, pos + 1);
+			return utils.ifInsideOfOneSyllablePrefix(arr, pos) && utils.isConsonant(next);
+		}
+		
+		function ifInsideOfOneSyllablePrefix(arr, pos) {
+			return false;
 		}
 
 	};
