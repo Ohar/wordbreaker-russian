@@ -16,9 +16,9 @@
 	$.fn.wordwrapper = function () {
 
 		var vowels = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'],
-			consonants = ['б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п',
-				'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ь'],
-			SOFT_HYPHEN = "\u00AD";
+		    consonants = ['б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п',
+		                  'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ь'],
+		    SOFT_HYPHEN = "\u00AD";
 
 		var rules = {
 			isConsonantWithNextVowel: isConsonantWithNextVowel,
@@ -45,7 +45,7 @@
 
 		function wordwrapper(e) {
 			var text = e.text(),
-				words = text.split(' ');
+			    words = text.split(' ');
 
 			words.forEach(function (word, i, words_arr) {
 				var letters = word.split('');
@@ -77,15 +77,15 @@
 
 		function isConsonantWithNextVowel(pos, arr) {
 			var cur = utils.getLetter(arr, pos),
-				next = utils.getLetter(arr, pos + 1);
+			    next = utils.getLetter(arr, pos + 1);
 			return utils.isConsonant(cur) && utils.isVowel(next);
 		}
 
 		function ifVowelsBeforeAndAfter(pos, arr) {
 			var i,
-				len = arr.length,
-				before = false,
-				after = false;
+			    len = arr.length,
+			    before = false,
+			    after = false;
 
 			for (i = pos + 1; i < len; i++) {
 				if (utils.isVowel(arr[i])) {
@@ -110,21 +110,21 @@
 
 		function ifVowelWithNextKratkaya(pos, arr) {
 			var cur = utils.getLetter(arr, pos),
-				next = utils.getLetter(arr, pos + 1);
+			    next = utils.getLetter(arr, pos + 1);
 			return utils.isVowel(cur) && next === 'й';
 		}
 
 		function isConsonantWithNextLetterSign(pos, arr) {
 			var cur = utils.getLetter(arr, pos),
-				next = utils.getLetter(arr, pos + 1);
+			    next = utils.getLetter(arr, pos + 1);
 			return utils.isConsonant(cur) && (next === 'ь' || next === 'ъ');
 		}
 
 		function isDoubleConsonantWithVowels(pos, arr) {
 			var cur = utils.getLetter(arr, pos),
-				next = utils.getLetter(arr, pos + 1),
-				afterNext = utils.getLetter(arr, pos + 2),
-				afterAfterNext = utils.getLetter(arr, pos + 2);
+			    next = utils.getLetter(arr, pos + 1),
+			    afterNext = utils.getLetter(arr, pos + 2),
+			    afterAfterNext = utils.getLetter(arr, pos + 2);
 
 			return (next === afterNext)
 				&& utils.isConsonant(next)
