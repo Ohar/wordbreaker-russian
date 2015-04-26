@@ -163,10 +163,6 @@
             return arr[pos] && arr[pos].toLowerCase()
         }
 
-        // TODO:
-        // При переносе слов с приставками нельзя
-        // разбивать односложную приставку, если
-        // за приставкой идет согласный.
         function ifOneSyllablePrefixWithNextConsonant(pos, arr) {
             var next = utils.getLetter(pos + 1, arr);
             return utils.ifInsideOfOneSyllablePrefix(pos, arr)
@@ -208,8 +204,17 @@
         }
 
         function isPrefixOneSyllable(prefix) {
+            var i,
+                len = prefix.length,
+                vowels = 0;
 
-            return false;
+            for (i = 0; i < len; i++){
+                if (utils.isVowel(prefix[i])) {
+                    vowels++;
+                }
+            }
+
+            return Boolean(vowels === 1);
         }
 
     };
