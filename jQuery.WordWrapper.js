@@ -63,15 +63,19 @@
                 words = text.split(' ');
 
             words.forEach(function (word, i, words_arr) {
-                var letters = word.split('');
 
-                letters.forEach(function (letter, j, letters_arr) {
-                    if (utils.isNeedHyphen(j, letters_arr)) {
-                        letters_arr[j] += SOFT_HYPHEN;
-                    }
+                var subWords = word.split('-');
+                subWords.forEach(function(subWord, j, subWords_arr){
+                    var letters = subWord.split('');
+                    letters.forEach(function(letter, k, letters_arr){
+                        if (utils.isNeedHyphen(k, letters_arr)) {
+                            letters_arr[k] += SOFT_HYPHEN;
+                        }
+                    });
+                    subWord = letters.join('');
+                    subWords_arr[j] = subWord;
                 });
-
-                word = letters.join('');
+                word = subWords.join('-');
                 words_arr[i] = word;
             });
 
