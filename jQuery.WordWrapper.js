@@ -178,7 +178,7 @@
         }
 
         function ifInsidePrefix(pos, prefix) {
-            return prefix && (pos < prefix.length);
+            return prefix && (pos + 1 < prefix.length);
         }
 
         function ifStartWith(string, start) {
