@@ -38,7 +38,7 @@
             ifVowelWithNextKratkaya: ifVowelWithNextKratkaya,
             isConsonantWithNextLetterSign: isConsonantWithNextLetterSign,
             isDoubleConsonantWithVowels: isDoubleConsonantWithVowels,
-            ifOneSyllablePrefixWithNextConsonant: ifOneSyllablePrefixWithNextConsonant,
+            ifInsideOneSyllablePrefixWithNextConsonant: ifInsideOneSyllablePrefixWithNextConsonant,
         };
 
         var utils = {
@@ -89,7 +89,7 @@
                 && !rules.isConsonantWithNextLetterSign(pos, arr) // 119.1
                 && !rules.ifVowelWithNextKratkaya(pos, arr) // 119.2
                 && !rules.ifShortPart(pos, arr) // 119.3
-                && !rules.ifOneSyllablePrefixWithNextConsonant(pos, arr) // 119.4
+                && !rules.ifInsideOneSyllablePrefixWithNextConsonant(pos, arr) // 119.4
                 && !rules.isDoubleConsonantWithVowels(pos, arr) // 119.7
             );
         }
@@ -163,16 +163,16 @@
             return arr[pos] && arr[pos].toLowerCase()
         }
 
-        function ifOneSyllablePrefixWithNextConsonant(pos, arr) {
-            var next = utils.getLetter(pos + 1, arr);
-            return utils.ifInsideOfOneSyllablePrefix(pos, arr)
-                && utils.isConsonant(next);
+        function ifInsideOneSyllablePrefixWithNextConsonant(pos, arr) {
+            var word = arr.join(''),
+                prefix = utils.getPrefix(word),
+                letterAfterPrefix = utils.getLetter(prefix.length, arr);
+
+            return utils.ifInsideOfOneSyllablePrefix(pos, prefix)
+                && utils.isConsonant(letterAfterPrefix);
         }
 
-        function ifInsideOfOneSyllablePrefix(pos, arr) {
-            var word = arr.join(''),
-                prefix = utils.getPrefix(word);
-
+        function ifInsideOfOneSyllablePrefix(pos, prefix) {
             return utils.ifInsidePrefix(pos, prefix)
                 && utils.isPrefixOneSyllable(prefix);
         }
