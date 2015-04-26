@@ -92,7 +92,7 @@
 
         function isConsonantWithNextVowel(pos, arr) {
             var cur = utils.getLetter(pos, arr),
-                next = utils.getLetter(pos, arr + 1);
+                next = utils.getLetter(pos + 1, arr);
             return utils.isConsonant(cur) && utils.isVowel(next);
         }
 
@@ -125,21 +125,21 @@
 
         function ifVowelWithNextKratkaya(pos, arr) {
             var cur = utils.getLetter(pos, arr),
-                next = utils.getLetter(pos, arr + 1);
+                next = utils.getLetter(pos + 1, arr);
             return utils.isVowel(cur) && next === 'й';
         }
 
         function isConsonantWithNextLetterSign(pos, arr) {
             var cur = utils.getLetter(pos, arr),
-                next = utils.getLetter(pos, arr + 1);
+                next = utils.getLetter(pos + 1, arr);
             return utils.isConsonant(cur) && (next === 'ь' || next === 'ъ');
         }
 
         function isDoubleConsonantWithVowels(pos, arr) {
             var cur = utils.getLetter(pos, arr),
-                next = utils.getLetter(pos, arr + 1),
-                afterNext = utils.getLetter(pos, arr + 2),
-                afterAfterNext = utils.getLetter(pos, arr + 2);
+                next = utils.getLetter(pos + 1, arr),
+                afterNext = utils.getLetter(pos + 2, arr),
+                afterAfterNext = utils.getLetter(pos + 2, arr);
 
             return (next === afterNext)
                 && utils.isConsonant(next)
@@ -148,11 +148,11 @@
         }
 
         function isConsonant(s) {
-            return s && consonants.indexOf(s.toLowerCase()) + 1;
+            return Boolean(s && consonants.indexOf(s.toLowerCase()) + 1);
         }
 
         function isVowel(s) {
-            return s && vowels.indexOf(s.toLowerCase()) + 1;
+            return Boolean(s && vowels.indexOf(s.toLowerCase()) + 1);
         }
 
         function getLetter(pos, arr) {
@@ -164,7 +164,7 @@
         // разбивать односложную приставку, если
         // за приставкой идет согласный.
         function ifOneSyllablePrefixWithNextConsonant(pos, arr) {
-            var next = utils.getLetter(pos, arr + 1);
+            var next = utils.getLetter(pos + 1, arr);
             return utils.ifInsideOfOneSyllablePrefix(pos, arr)
                 && utils.isConsonant(next);
         }
