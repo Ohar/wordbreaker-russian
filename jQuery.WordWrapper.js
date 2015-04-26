@@ -69,7 +69,7 @@
                     var letters = subWord.split('');
                     letters.forEach(function(letter, k, letters_arr){
                         if (utils.isNeedHyphen(k, letters_arr)) {
-                            letters_arr[k] += SOFT_HYPHEN;
+                            letters_arr[k] += '×' + SOFT_HYPHEN;
                         }
                     });
                     subWord = letters.join('');
