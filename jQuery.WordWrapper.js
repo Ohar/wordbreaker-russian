@@ -59,7 +59,7 @@
         });
 
         function wordwrapper(e) {
-            var text = e.text(),
+            var text = e.text().replace(/\u00AD/g, ''),
                 words = text.split(' ');
 
             words.forEach(function (word, i, words_arr) {
