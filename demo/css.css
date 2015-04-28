@@ -6,7 +6,7 @@ body {
 .constantine {
     display: inline-block;
     vertical-align: middle;
-    max-width: 5em;
+    max-width: 7em;
     overflow: auto;
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;
