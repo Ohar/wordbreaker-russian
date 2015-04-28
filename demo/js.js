@@ -1,9 +1,12 @@
 $(function () {
+	var $needWrap = $('.narrow').add('.constantine');
+
 	$('#addSoftHyphens').click(function () {
-		$('.narrow').add('.constantine').wordwrapper();
+		$needWrap.wordwrapper();
 	});
+
 	$('#removeSoftHyphens').click(function () {
-		$('.narrow').add('.constantine').each(function(i, e){
+		$needWrap.each(function(i, e){
 			var text = $(e).text();
 			$(e).text(text.replace(/\u00AD/g, ''));
 		})
@@ -11,4 +14,6 @@ $(function () {
 	$('#widthChanger').change(function () {
 		$('.narrow').css('maxWidth', this.value + 'em')
 	});
+
+	$needWrap.wordwrapper();
 });
