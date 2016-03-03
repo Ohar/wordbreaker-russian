@@ -143,7 +143,7 @@
             var cur = utils.getLetter(pos, arr),
                 next = utils.getLetter(pos + 1, arr),
                 afterNext = utils.getLetter(pos + 2, arr),
-                afterAfterNext = utils.getLetter(pos + 2, arr);
+                afterAfterNext = utils.getLetter(pos + 3, arr);
 
             return (next === afterNext)
                 && utils.isConsonant(next)
