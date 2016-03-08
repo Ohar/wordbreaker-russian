@@ -12,7 +12,7 @@
  Date: Thu Apr 16, 2015
  */
 
-(function ($) {
+;(function ($) {
     $.fn.wordwrapper = function () {
 
         var vowels = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'],
@@ -54,11 +54,10 @@
         };
 
         return this.each(function () {
-            var $this = $(this);
-            wordwrapper($this);
+            wordwrapper($(this));
         });
 
-        function wordwrapper(e) {
+        function wordwrapper (e) {
             var text = e.text().replace(/\u00AD/g, ''),
                 words = text.split(' ');
 
@@ -83,7 +82,7 @@
             e.text(text);
         }
 
-        function isNeedHyphen(pos, arr) {
+        function isNeedHyphen (pos, arr) {
             return (rules.ifVowelsBeforeAndAfter(pos, arr) // 117
                 && !rules.isConsonantWithNextVowel(pos, arr) // 118.0
                 && !rules.isConsonantWithNextLetterSign(pos, arr) // 119.1
@@ -94,13 +93,15 @@
             );
         }
 
-        function isConsonantWithNextVowel(pos, arr) {
+        function isConsonantWithNextVowel (pos, arr) {
             var cur = utils.getLetter(pos, arr),
                 next = utils.getLetter(pos + 1, arr);
-            return utils.isConsonant(cur) && utils.isVowel(next);
+
+            return utils.isConsonant(cur)
+                && utils.isVowel(next);
         }
 
-        function ifVowelsBeforeAndAfter(pos, arr) {
+        function ifVowelsBeforeAndAfter (pos, arr) {
             var i,
                 len = arr.length,
                 before = false,
@@ -120,26 +121,35 @@
                 }
             }
 
-            return before && after;
+            return before
+                && after;
         }
 
-        function ifShortPart(pos, arr) {
-            return (pos === 0) || (pos >= arr.length - 2);
+        function ifShortPart (pos, arr) {
+            return (pos === 0)
+                || (pos >= arr.length - 2);
         }
 
-        function ifVowelWithNextKratkaya(pos, arr) {
+        function ifVowelWithNextKratkaya (pos, arr) {
             var cur = utils.getLetter(pos, arr),
                 next = utils.getLetter(pos + 1, arr);
-            return utils.isVowel(cur) && next === 'й';
+
+            return utils.isVowel(cur)
+                && next === 'й';
         }
 
-        function isConsonantWithNextLetterSign(pos, arr) {
+        function isConsonantWithNextLetterSign (pos, arr) {
             var cur = utils.getLetter(pos, arr),
                 next = utils.getLetter(pos + 1, arr);
-            return utils.isConsonant(cur) && (next === 'ь' || next === 'ъ');
+
+            return utils.isConsonant(cur)
+                && (
+                    next === 'ь'
+                 || next === 'ъ'
+                );
         }
 
-        function isDoubleConsonantWithVowels(pos, arr) {
+        function isDoubleConsonantWithVowels (pos, arr) {
             var cur = utils.getLetter(pos, arr),
                 next = utils.getLetter(pos + 1, arr),
                 afterNext = utils.getLetter(pos + 2, arr),
@@ -151,19 +161,20 @@
                 && utils.isVowel(afterAfterNext);
         }
 
-        function isConsonant(s) {
+        function isConsonant (s) {
             return Boolean(s && consonants.indexOf(s.toLowerCase()) + 1);
         }
 
-        function isVowel(s) {
+        function isVowel (s) {
             return Boolean(s && vowels.indexOf(s.toLowerCase()) + 1);
         }
 
-        function getLetter(pos, arr) {
-            return arr[pos] && arr[pos].toLowerCase()
+        function getLetter (pos, arr) {
+            return arr[pos]
+                && arr[pos].toLowerCase()
         }
 
-        function ifInsideOneSyllablePrefixWithNextConsonant(pos, arr) {
+        function ifInsideOneSyllablePrefixWithNextConsonant (pos, arr) {
             var word = arr.join(''),
                 prefix = utils.getPrefix(word),
                 letterAfterPrefix = utils.getLetter(prefix.length, arr);
@@ -172,26 +183,26 @@
                 && utils.isConsonant(letterAfterPrefix);
         }
 
-        function ifInsideOfOneSyllablePrefix(pos, prefix) {
+        function ifInsideOfOneSyllablePrefix (pos, prefix) {
             return utils.ifInsidePrefix(pos, prefix)
                 && utils.isPrefixOneSyllable(prefix);
         }
 
-        function ifInsidePrefix(pos, prefix) {
+        function ifInsidePrefix (pos, prefix) {
             return prefix && (pos + 1 < prefix.length);
         }
 
-        function ifStartWith(string, start) {
+        function ifStartWith (string, start) {
             return string.indexOf(start) === 0;
         }
 
-        function getPrefix(word) {
+        function getPrefix (word) {
             var i,
                 len = prefixes.length,
                 prefix = '',
                 prefixTemp = '';
 
-            for (i = 0; i < len; i++){
+            for (i = 0; i < len; i++) {
                 if (
                     utils.ifStartWith(word, prefixes[i])
                  && prefixTemp.length < prefixes[i].length
@@ -203,7 +214,7 @@
             return prefix;
         }
 
-        function isPrefixOneSyllable(prefix) {
+        function isPrefixOneSyllable (prefix) {
             var i,
                 len = prefix.length,
                 vowels = 0;
