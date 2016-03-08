@@ -3,8 +3,7 @@
 
 [Демо](http://ohar.github.io/jQuery.WordWrapper.js/)
 
-TODO: полное соответствие [правилам русской орфографии и пунктуации (1956)](http://new.gramota
-.ru/spravka/rules/141-perenos), §§ 117–124.
+TODO: полное соответствие [правилам русской орфографии и пунктуации (1956)](http://new.gramota.ru/spravka/rules/141-perenos), §§ 117–124.
 
 № правила | Готовность | Краткое описание
 ---       | ---        | ---
