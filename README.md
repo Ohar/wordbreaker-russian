@@ -1,7 +1,9 @@
-# jQuery.WordWrapper.js
-~~Переносятор~~ ~~перенесун~~ ~~переносчик~~ ~~переноситель~~ расстановщик мягких переносов для русского языка
+# Wordbreaker (Russian)
+_Бывший jQuery.WordWrapper.js_
 
-[Демо](http://ohar.github.io/jQuery.WordWrapper.js/)
+Расстановщик мягких переносов для русского языка
+
+[Демо](https://ohar.github.io/wordbreaker-russian//) (поломано)
 
 TODO: полное соответствие [правилам русской орфографии и пунктуации (1956)](http://new.gramota.ru/spravka/rules/141-perenos), §§ 117–124.
 
