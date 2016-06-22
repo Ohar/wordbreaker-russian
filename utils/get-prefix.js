@@ -1,7 +1,7 @@
 'use strict';
 
 const ifStartWith = require('./../utils/if-start-with'),
-      PREFIXES    = require('./../utils/prefixes');
+      PREFIXES    = require('./../consts/prefixes');
 
 function getPrefix (word) {
   let prefix     = '',
