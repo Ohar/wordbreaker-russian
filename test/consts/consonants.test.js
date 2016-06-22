@@ -18,7 +18,7 @@ describe(
     );
 
     it(
-      'Все строки содержат 1 букву', () => {
+      'Все строки содержат 1 букву', () => {
         CONSONANTS.forEach(consonant => {
           chai.assert(consonant.length === 1);
         })
