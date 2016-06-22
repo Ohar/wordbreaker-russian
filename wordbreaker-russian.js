@@ -1,42 +1,53 @@
 'use strict';
 
 const isNeedHyphen = require('./utils/is-need-hyphen'),
-      SOFT_HYPHEN  = require('./consts/soft-hyphen');
+      SOFT_HYPHEN  = require('./consts/soft-hyphen'),
+      log4js       = require('log4js'),
+      logger       = log4js.getLogger('wordbreakerRussian');
 
 function wordbreakerRussian (text) {
   let text  = text.replace(/\u00AD/g, ''),
       words = text.split(' ');
 
-  words.forEach(
-    (word, i, words_arr) => {
+  logger.info('Input', text);
 
+  words.map(
+    word => {
       let subWords = word.split('-');
 
-      subWords.forEach(
-        (subWord, j, subWordsArr) => {
+      subWords.map(
+        subWord => {
           let letters = subWord.split('');
 
-          letters.forEach(
-            (letter, k, letters_arr) => {
-              if (isNeedHyphen(k, letters_arr)) {
-                letters_arr[k] += SOFT_HYPHEN;
+          letters.map(
+            (letter, k, lettersArr) => {
+              if (isNeedHyphen(k, lettersArr)) {
+                letter += SOFT_HYPHEN;
               }
+
+              return letter;
             }
           );
 
           subWord = letters.join('');
-          subWordsArr[j] = subWord;
+
+          return subWord;
         }
       );
 
-      word = subWords.join('-');
-      words_arr[i] = word;
+      let formattedWord = subWords.join('-');
+
+      logger.trace('Word %s → %s', word, formattedWord);
+
+      return formattedWord;
     }
   );
 
-  text = words.join(' ');
+  let formattedText = words.join(' ');
 
-  return text;
+  logger.info('Output', formattedText);
+
+  return formattedText;
 }
 
 module.exports = wordbreakerRussian;
