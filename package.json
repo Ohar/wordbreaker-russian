@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/Ohar/wordbreaker-russian/issues"
   },
-  "homepage": "https://github.com/Ohar/wordbreaker-russian#readme"
+  "homepage": "https://github.com/Ohar/wordbreaker-russian#readme",
+  "dependencies": {
+    "log4js": "^0.6.37"
+  }
 }
