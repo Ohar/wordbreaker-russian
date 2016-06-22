@@ -11,7 +11,7 @@ function wordbreakerRussian (text) {
 
   logger.info('Input', text);
 
-  words.map(
+  words = words.map(
     word => {
       let subWords = word
         .split('-')
