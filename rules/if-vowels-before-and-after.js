@@ -1,5 +1,9 @@
 'use strict';
 
+// 117 
+// При переносе слов нельзя ни оставлять в конце строки, 
+// ни переносить на другую строку часть слова, не составляющую слога.
+
 const isVowel = require('./../utils/is-vowel');
 
 function ifVowelsBeforeAndAfter (pos, arr) {

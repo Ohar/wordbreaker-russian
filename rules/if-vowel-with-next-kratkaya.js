@@ -1,5 +1,8 @@
 'use strict';
 
+// 119.2
+// Нельзя отрывать букву `й` от предшествующей гласной
+
 const getLetter = require('./../utils/get-letter'),
       isVowel   = require('./../utils/is-vowel');
 

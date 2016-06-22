@@ -1,5 +1,9 @@
 'use strict';
 
+// 119.7
+// Нельзя оставлять в конце строки или переносить в начало следующей
+// две одинаковые согласные, стоящие между гласными
+
 const getLetter   = require('./../utils/get-letter'),
       isConsonant = require('./../utils/is-consonant'),
       isVowel     = require('./../utils/is-vowel');

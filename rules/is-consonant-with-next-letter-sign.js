@@ -1,5 +1,8 @@
 'use strict';
 
+// 119.1
+// Нельзя отрывать буквы `ь` и `ъ` от предшествующей согласной
+
 const getLetter   = require('./../utils/get-letter'),
       isConsonant = require('./../utils/is-consonant');
 

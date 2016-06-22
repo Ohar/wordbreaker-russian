@@ -1,5 +1,9 @@
 'use strict';
 
+// 119.4
+// При переносе слов с приставками нельзя разбивать односложную приставку,
+// если за приставкой идет согласный
+
 const getPrefix                   = require('./../utils/get-prefix'),
       getLetter                   = require('./../utils/get-letter'),
       isConsonant                 = require('./../utils/is-consonant'),
