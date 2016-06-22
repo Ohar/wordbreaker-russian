@@ -13,27 +13,22 @@ function wordbreakerRussian (text) {
 
   words.map(
     word => {
-      let subWords = word.split('-');
+      let subWords = word
+        .split('-')
+        .map(
+          subWord => subWord
+            .split('')
+            .map(
+              (letter, k, lettersArr) => {
+                if (isNeedHyphen(k, lettersArr)) {
+                  letter += SOFT_HYPHEN;
+                }
 
-      subWords.map(
-        subWord => {
-          let letters = subWord.split('');
-
-          letters.map(
-            (letter, k, lettersArr) => {
-              if (isNeedHyphen(k, lettersArr)) {
-                letter += SOFT_HYPHEN;
+                return letter;
               }
-
-              return letter;
-            }
-          );
-
-          subWord = letters.join('');
-
-          return subWord;
-        }
-      );
+            )
+            .join('')
+        );
 
       let formattedWord = subWords.join('-');
 
