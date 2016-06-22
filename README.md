@@ -3,6 +3,8 @@ _Бывший jQuery.WordWrapper.js_
 
 Расстановщик мягких переносов для русского языка
 
+[![NPM](https://nodei.co/npm/wordbreaker-russian.png)](https://npmjs.org/package/wordbreaker-russian)
+
 [Демо](https://ohar.github.io/wordbreaker-russian//) (поломано)
 
 ## TODO
