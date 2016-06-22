@@ -6,7 +6,7 @@ _Бывший jQuery.WordWrapper.js_
 [Демо](https://ohar.github.io/wordbreaker-russian//) (поломано)
 
 ## TODO
-* [ ] Разбить по модулям
+* [x] Разбить по модулям
 * [ ] Написать тесты
 * [ ] Починить демо
 * [ ] Полное соответствие [правилам русской орфографии и пунктуации (1956)](http://new.gramota.ru/spravka/rules/141-perenos), §§ 117–124.
