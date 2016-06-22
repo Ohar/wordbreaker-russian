@@ -1,6 +1,6 @@
 {
   "name": "wordbreaker-russian",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Расстановщик мягких переносов для русского языка",
   "main": "wordbreaker-russian.js",
   "scripts": {
