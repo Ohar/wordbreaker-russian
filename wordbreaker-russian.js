@@ -1,13 +1,13 @@
 'use strict';
 
-const isNeedHyphen = require('./utils/is-need-hyphen'),
+const log4js       = require('log4js'),
       SOFT_HYPHEN  = require('./consts/soft-hyphen'),
-      log4js       = require('log4js'),
+      isNeedHyphen = require('./utils/is-need-hyphen'),
       logger       = log4js.getLogger('wordbreakerRussian');
 
 function wordbreakerRussian (text) {
-  let text  = text.replace(/\u00AD/g, ''),
-      words = text.split(' ');
+  let words = text.replace(/\u00AD/g, '')
+                  .split(' ');
 
   logger.info('Input', text);
 
