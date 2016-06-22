@@ -1,9 +1,9 @@
 'use strict';
 
-const consonants = require('./../consts/consonants');
+const CONSONANTS = require('./../consts/consonants');
 
 function isConsonant (s) {
-  return Boolean(s && consonants.indexOf(s.toLowerCase()) + 1);
+  return Boolean(s && CONSONANTS.indexOf(s.toLowerCase()) + 1);
 }
 
 module.exports = isConsonant;
