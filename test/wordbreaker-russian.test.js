@@ -22,14 +22,20 @@ describe(
     describe(
       'Правильно расставляет переносы', () => {
         it(
-          'собака → со-ба-ка', () => {
+          'собака → со­ба­ка', () => {
             chai.assert.equal(wordbreakerRussian('собака'), 'со­ба­ка');
           }
         );
 
         it(
-          'кошка → кош-ка', () => {
-            chai.assert.equal(wordbreakerRussian('кошка'), 'кош­ка');
+          'кот → кот', () => {
+            chai.assert.equal(wordbreakerRussian('кот'), 'кот');
+          }
+        );
+
+        it(
+          'Колорадо → Ко­ло­ра­до', () => {
+            chai.assert.equal(wordbreakerRussian('Колорадо'), 'Ко­ло­ра­до');
           }
         );
       }
