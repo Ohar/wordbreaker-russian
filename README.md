@@ -5,7 +5,7 @@ _Бывший jQuery.WordWrapper.js_
 
 [![NPM](https://nodei.co/npm/wordbreaker-russian.png)](https://npmjs.org/package/wordbreaker-russian)
 
-[Демо](https://ohar.github.io/wordbreaker-russian//) (поломано)
+[Демо](https://ohar.github.io/wordbreaker-russian/) (поломано)
 
 ## TODO
 * [x] Разбить по модулям
