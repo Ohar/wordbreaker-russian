@@ -12,77 +12,93 @@ describe(
       }
     );
 
-    it(
+    describe(
       'Правильно работает', () => {
-        const inputs = [
-          {
-            position: 0,
-            word: 'подбить',
-            result: true,
-          },
-          {
-            position: 1,
-            word: 'подбить',
-            result: true,
-          },
-          {
-            position: 2,
-            word: 'подбить',
-            result: false,
-          },
-          {
-            position: 3,
-            word: 'подбить',
-            result: false,
-          },
-          {
-            position: 4,
-            word: 'подбить',
-            result: false,
-          },
-          {
-            position: 5,
-            word: 'подбить',
-            result: false,
-          },
-          {
-            position: 0,
-            word: 'размах',
-            result: true,
-          },
-          {
-            position: 1,
-            word: 'размах',
-            result: true,
-          },
-          {
-            position: 2,
-            word: 'размах',
-            result: false,
-          },
-          {
-            position: 3,
-            word: 'размах',
-            result: false,
-          },
-          {
-            position: 4,
-            word: 'размах',
-            result: false,
-          },
-        ];
 
-        inputs.forEach(
-          input => {
-            chai.assert.equal(
-              ifInsideOneSyllablePrefixWithNextConsonant(
-                input.position,
-                input.word.split('')
-              ),
-              input.result
+        it(
+          'подбить', () => {
+            const word   = 'подбить'.split(''),
+                  inputs = [
+                    {
+                      position: 0,
+                      result: true,
+                    },
+                    {
+                      position: 1,
+                      result: true,
+                    },
+                    {
+                      position: 2,
+                      result: false,
+                    },
+                    {
+                      position: 3,
+                      result: false,
+                    },
+                    {
+                      position: 4,
+                      result: false,
+                    },
+                    {
+                      position: 5,
+                      result: false,
+                    },
+                  ];
+
+            inputs.forEach(
+              input => {
+                chai.assert.equal(
+                  ifInsideOneSyllablePrefixWithNextConsonant(
+                    input.position,
+                    word
+                  ),
+                  input.result
+                );
+              }
             );
           }
         );
+
+        it(
+          'размах', () => {
+            const word   = 'размах'.split(''),
+                  inputs = [
+                    {
+                      position: 0,
+                      result: true,
+                    },
+                    {
+                      position: 1,
+                      result: true,
+                    },
+                    {
+                      position: 2,
+                      result: false,
+                    },
+                    {
+                      position: 3,
+                      result: false,
+                    },
+                    {
+                      position: 4,
+                      result: false,
+                    },
+                  ];
+
+            inputs.forEach(
+              input => {
+                chai.assert.equal(
+                  ifInsideOneSyllablePrefixWithNextConsonant(
+                    input.position,
+                    word
+                  ),
+                  input.result
+                );
+              }
+            );
+          }
+        );
+
       }
     );
 
