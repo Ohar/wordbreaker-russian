@@ -6,7 +6,7 @@ export default function BtnRemove ({onClick}) {
         <button className="BtnRemove"
                 type="button"
                 onClick={onClick}>
-            Расставить мягкие переносы
+            Убрать мягкие переносы
         </button>
     )
 }

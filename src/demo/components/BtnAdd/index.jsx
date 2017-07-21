@@ -6,7 +6,7 @@ export default function BtnAdd ({onClick}) {
         <button className="BtnAdd"
                 type="button"
                 onClick={onClick}>
-            Убрать мягкие переносы
+            Расставить мягкие переносы
         </button>
     )
 }
