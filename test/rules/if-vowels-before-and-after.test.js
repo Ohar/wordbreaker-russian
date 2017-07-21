@@ -1,7 +1,7 @@
 'use strict';
 
-const chai                    = require('chai'),
-      ifVowelsBeforeAndAfter = require('./../../rules/if-vowels-before-and-after');
+const chai                   = require('chai'),
+      ifVowelsBeforeAndAfter = require('./../../src/rules/if-vowels-before-and-after');
 
 describe(
   'ifVowelsBeforeAndAfter', () => {

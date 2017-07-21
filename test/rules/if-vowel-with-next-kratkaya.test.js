@@ -1,7 +1,7 @@
 'use strict';
 
 const chai                    = require('chai'),
-      ifVowelWithNextKratkaya = require('./../../rules/if-vowel-with-next-kratkaya');
+      ifVowelWithNextKratkaya = require('./../../src/rules/if-vowel-with-next-kratkaya');
 
 describe(
   'ifVowelWithNextKratkaya', () => {

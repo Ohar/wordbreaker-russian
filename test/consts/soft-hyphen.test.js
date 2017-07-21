@@ -1,7 +1,7 @@
 'use strict';
 
 const chai        = require('chai'),
-      SOFT_HYPHEN = require('./../../consts/soft-hyphen');
+      SOFT_HYPHEN = require('./../../src/consts/soft-hyphen');
 
 describe(
   'SOFT_HYPHEN', () => {

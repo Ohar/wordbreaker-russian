@@ -1,7 +1,7 @@
 'use strict';
 
 const chai     = require('chai'),
-      PREFIXES = require('./../../consts/prefixes');
+      PREFIXES = require('./../../src/consts/prefixes');
 
 describe(
   'PREFIXES', () => {

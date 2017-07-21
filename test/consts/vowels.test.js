@@ -1,7 +1,7 @@
 'use strict';
 
 const chai   = require('chai'),
-      VOWELS = require('./../../consts/vowels');
+      VOWELS = require('./../../src/consts/vowels');
 
 describe(
   'VOWELS', () => {

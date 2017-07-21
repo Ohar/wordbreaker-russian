@@ -1,7 +1,7 @@
 'use strict';
 
 const chai        = require('chai'),
-      ifShortPart = require('./../../rules/if-short-part');
+      ifShortPart = require('./../../src/rules/if-short-part');
 
 describe(
   'ifShortPart', () => {

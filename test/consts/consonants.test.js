@@ -1,7 +1,7 @@
 'use strict';
 
 const chai       = require('chai'),
-      CONSONANTS = require('./../../consts/consonants');
+      CONSONANTS = require('./../../src/consts/consonants');
 
 describe(
   'CONSONANTS', () => {

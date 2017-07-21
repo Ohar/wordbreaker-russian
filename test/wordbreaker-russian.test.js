@@ -1,7 +1,7 @@
 'use strict';
 
 const chai               = require('chai'),
-      wordbreakerRussian = require('./../../wordbreaker-russian');
+      wordbreakerRussian = require('./../../src/wordbreaker-russian');
 
 describe(
   'wordbreakerRussian', () => {
