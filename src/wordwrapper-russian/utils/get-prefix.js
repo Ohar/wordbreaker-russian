@@ -1,22 +1,20 @@
-'use strict';
+import ifStartWith from './../utils/if-start-with'
+import PREFIXES    from './../consts/prefixes'
 
-const ifStartWith = require('./../utils/if-start-with'),
-      PREFIXES    = require('./../consts/prefixes');
-
-function getPrefix (word) {
+export default function getPrefix (word) {
   let prefix     = '',
       prefixTemp = '';
 
-  for (let i = 0; i < PREFIXES.length; i++) {
-    if (
-         ifStartWith(word, PREFIXES[i])
-      && prefixTemp.length < PREFIXES[i].length
-    ) {
-      prefix = prefixTemp = PREFIXES[i];
-    }
-  }
+  PREFIXES.forEach(
+      el => {
+          if (
+                 ifStartWith(word, el)
+              && prefixTemp.length < el.length
+          ) {
+              prefix = prefixTemp = el;
+          }
+      }
+  )
 
   return prefix;
 }
-
-module.exports = getPrefix;

@@ -4,18 +4,16 @@
 // При переносе слов с приставками нельзя разбивать односложную приставку,
 // если за приставкой идет согласный
 
-const getPrefix                   = require('./../utils/get-prefix'),
-      getLetter                   = require('./../utils/get-letter'),
-      isConsonant                 = require('./../utils/is-consonant'),
-      ifInsideOfOneSyllablePrefix = require('./../utils/if-inside-of-one-syllable-prefix');
+import getPrefix from './../utils/get-prefix';
+import getLetter from './../utils/get-letter';
+import isConsonant from './../utils/is-consonant';
+import ifInsideOfOneSyllablePrefix from './../utils/if-inside-of-one-syllable-prefix';
 
-function ifInsideOneSyllablePrefixWithNextConsonant (pos, arr) {
-  let word              = arr.join(''),
-      prefix            = getPrefix(word),
-      letterAfterPrefix = getLetter(prefix.length, arr);
+export default function ifInsideOneSyllablePrefixWithNextConsonant (pos, arr) {
+    const word              = arr.join(''),
+          prefix            = getPrefix(word),
+          letterAfterPrefix = getLetter(prefix.length, arr);
 
-  return ifInsideOfOneSyllablePrefix(pos, prefix)
-      && isConsonant(letterAfterPrefix);
+    return ifInsideOfOneSyllablePrefix(pos, prefix)
+           && isConsonant(letterAfterPrefix);
 }
-
-module.exports = ifInsideOneSyllablePrefixWithNextConsonant;

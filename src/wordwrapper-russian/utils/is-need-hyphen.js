@@ -1,14 +1,14 @@
 'use strict';
 
-const ifInsideOneSyllablePrefixWithNextConsonant = require('./../rules/if-inside-one-syllable-prefix-with-next-consonant'),
-      ifShortPart                                = require('./../rules/if-short-part'),
-      ifVowelsBeforeAndAfter                     = require('./../rules/if-vowels-before-and-after'),
-      ifVowelWithNextKratkaya                    = require('./../rules/if-vowel-with-next-kratkaya'),
-      isConsonantWithNextVowel                   = require('./../rules/is-consonant-with-next-vowel'),
-      isConsonantWithNextLetterSign              = require('./../rules/is-consonant-with-next-letter-sign'),
-      isDoubleConsonantWithVowels                = require('./../rules/is-double-consonant-with-vowels');
+import ifInsideOneSyllablePrefixWithNextConsonant from './../rules/if-inside-one-syllable-prefix-with-next-consonant'
+import ifShortPart                                from './../rules/if-short-part'
+import ifVowelsBeforeAndAfter                     from './../rules/if-vowels-before-and-after'
+import ifVowelWithNextKratkaya                    from './../rules/if-vowel-with-next-kratkaya'
+import isConsonantWithNextVowel                   from './../rules/is-consonant-with-next-vowel'
+import isConsonantWithNextLetterSign              from './../rules/is-consonant-with-next-letter-sign'
+import isDoubleConsonantWithVowels                from './../rules/is-double-consonant-with-vowels'
 
-function isNeedHyphen (pos, arr) {
+export default function isNeedHyphen (pos, arr) {
   return (
        ifVowelsBeforeAndAfter(pos, arr) // 117
     && !isConsonantWithNextVowel(pos, arr) // 118.0
@@ -19,5 +19,3 @@ function isNeedHyphen (pos, arr) {
     && !isDoubleConsonantWithVowels(pos, arr) // 119.7
   );
 }
-
-module.exports = isNeedHyphen;

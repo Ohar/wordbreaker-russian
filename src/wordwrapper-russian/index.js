@@ -1,40 +1,26 @@
-'use strict';
+import SOFT_HYPHEN from './consts/soft-hyphen'
+import isNeedHyphen from './utils/is-need-hyphen'
 
-const SOFT_HYPHEN  = require('./consts/soft-hyphen'),
-      isNeedHyphen = require('./utils/is-need-hyphen');
-
-function wordbreakerRussian (text) {
-  let words = text.replace(/\u00AD/g, '')
-                  .split(' ');
-
-  words = words.map(
-    word => {
-      let subWords = word
-        .split('-')
+export default function wordbreakerRussian (text) {
+    return text
+        .replace(new RegExp(SOFT_HYPHEN, 'g'), '')
+        .split(' ')
         .map(
-          subWord => subWord
-            .split('')
-            .map(
-              (letter, k, lettersArr) => {
-                if (isNeedHyphen(k, lettersArr)) {
-                  letter += SOFT_HYPHEN;
-                }
+            word => word
+                .split('-')
+                .map(
+                    subWord => subWord
+                        .split('')
+                        .map(
+                            (letter, k, lettersArr) => isNeedHyphen(k, lettersArr)
+                                ? letter + SOFT_HYPHEN
+                                : letter
+                        )
+                        .join('')
+                )
+                .join('-')
+        )
+        .join(' ');
 
-                return letter;
-              }
-            )
-            .join('')
-        );
-
-      let formattedWord = subWords.join('-');
-
-      return formattedWord;
-    }
-  );
-
-  let formattedText = words.join(' ');
-
-  return formattedText;
+    words;
 }
-
-module.exports = wordbreakerRussian;

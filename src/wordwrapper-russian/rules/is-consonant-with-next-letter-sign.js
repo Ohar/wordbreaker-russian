@@ -1,18 +1,13 @@
-'use strict';
-
 // 119.1
 // Нельзя отрывать буквы `ь` и `ъ` от предшествующей согласной
 
-const getLetter   = require('./../utils/get-letter'),
-      isConsonant = require('./../utils/is-consonant');
+import getLetter from './../utils/get-letter';
+import isConsonant from './../utils/is-consonant';
 
-function isConsonantWithNextLetterSign (pos, arr) {
-  let cur              = getLetter(pos, arr),
-      next             = getLetter(pos + 1, arr),
-      isNextLetterSign = next === 'ь'
-                      || next === 'ъ';
+export default function isConsonantWithNextLetterSign (pos, arr) {
+    const cur              = getLetter(pos, arr),
+          next             = getLetter(pos + 1, arr),
+          isNextLetterSign = next === 'ь' || next === 'ъ';
 
-  return isConsonant(cur) && isNextLetterSign;
+    return isConsonant(cur) && isNextLetterSign;
 }
-
-module.exports = isConsonantWithNextLetterSign;

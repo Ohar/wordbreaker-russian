@@ -1,17 +1,13 @@
-'use strict';
-
-// 118.0 
+// 118.0
 // Нельзя отделять согласную от следующей за ней гласной
 
-const getLetter   = require('./../utils/get-letter'),
-      isConsonant = require('./../utils/is-consonant'),
-      isVowel     = require('./../utils/is-vowel');
+import getLetter from './../utils/get-letter';
+import isConsonant from './../utils/is-consonant';
+import isVowel from './../utils/is-vowel';
 
-function isConsonantWithNextVowel (pos, arr) {
-  let cur  = getLetter(pos, arr),
-      next = getLetter(pos + 1, arr);
+export default function isConsonantWithNextVowel (pos, arr) {
+    const cur  = getLetter(pos, arr),
+          next = getLetter(pos + 1, arr);
 
-  return isConsonant(cur) && isVowel(next);
+    return isConsonant(cur) && isVowel(next);
 }
-
-module.exports = isConsonantWithNextVowel;

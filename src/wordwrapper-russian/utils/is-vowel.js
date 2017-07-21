@@ -1,9 +1,5 @@
-'use strict';
+import VOWELS from './../consts/vowels'
 
-const VOWELS = require('./../consts/vowels');
-
-function isVowel (s) {
-  return Boolean(s && VOWELS.indexOf(s.toLowerCase()) + 1);
+export default function isVowel (s) {
+  return Boolean(s && VOWELS.includes(s.toLowerCase()));
 }
-
-module.exports = isVowel;
