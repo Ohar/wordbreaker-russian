@@ -1,15 +1,11 @@
 'use strict';
 
-const log4js       = require('log4js'),
-      SOFT_HYPHEN  = require('./consts/soft-hyphen'),
-      isNeedHyphen = require('./utils/is-need-hyphen'),
-      logger       = log4js.getLogger('wordbreakerRussian');
+const SOFT_HYPHEN  = require('./consts/soft-hyphen'),
+      isNeedHyphen = require('./utils/is-need-hyphen');
 
 function wordbreakerRussian (text) {
   let words = text.replace(/\u00AD/g, '')
                   .split(' ');
-
-  logger.info('Input', text);
 
   words = words.map(
     word => {
@@ -32,15 +28,11 @@ function wordbreakerRussian (text) {
 
       let formattedWord = subWords.join('-');
 
-      logger.trace('Word %s → %s', word, formattedWord);
-
       return formattedWord;
     }
   );
 
   let formattedText = words.join(' ');
-
-  logger.info('Output', formattedText);
 
   return formattedText;
 }
