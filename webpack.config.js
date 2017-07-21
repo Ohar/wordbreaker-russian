@@ -20,7 +20,7 @@ module.exports = {
     },
     output : {
         pathinfo  : true,
-        path      : path.resolve(__dirname, 'dist'),
+        path      : path.resolve(__dirname, 'docs'),
         publicPath: './',
         filename  : PROD
             ? '[name].min.bundle.js'
@@ -35,7 +35,7 @@ module.exports = {
                 beautify: !PROD,
             }
         ),
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin(['docs']),
         new HtmlWebpackPlugin(
             {
                 template: 'src/demo/index.ejs',
@@ -48,7 +48,7 @@ module.exports = {
                 port  : process.env.PORT || 3000,
                 open  : false,
                 server: {
-                    baseDir: ['./dist']
+                    baseDir: ['./docs']
                 }
             }
         ),
