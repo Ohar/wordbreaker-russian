@@ -5,7 +5,7 @@ const path               = require('path'),
       CleanWebpackPlugin = require('clean-webpack-plugin'),
       UglifyJsPlugin     = require('uglifyjs-webpack-plugin')
 
-const PROD = JSON.parse(process.env.PROD_ENV || '0');
+const PROD = Boolean(JSON.parse(process.env.PROD_ENV || '0'));
 
 module.exports = {
     entry  : {
@@ -31,7 +31,7 @@ module.exports = {
         new UglifyJsPlugin(
             {
                 compress: PROD,
-                comments: PROD,
+                comments: !PROD,
                 beautify: !PROD,
             }
         ),
