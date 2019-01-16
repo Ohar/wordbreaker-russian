@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "buildprod": "cross-env PROD_ENV=1 webpack",
-    "test": "mocha --recursive -w"
+    "test": "mocha --recursive -w -r esm"
   },
   "repository": {
     "type": "git",
