@@ -18,7 +18,6 @@ const plugins = {
                 beautify: !PROD,
             }
         ),
-        new ExtractTextPlugin('[name].css'),
     ],
     dev: [
         new BrowserSyncPlugin(
@@ -34,6 +33,7 @@ const plugins = {
 
     ],
     prod: [
+        new ExtractTextPlugin('[name].css'),
         new HtmlWebpackPlugin(
             {
                 template: 'src/demo/index.ejs',
