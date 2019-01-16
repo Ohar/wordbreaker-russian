@@ -2,7 +2,7 @@
   "name": "wordbreaker-russian",
   "version": "0.2.1",
   "description": "Расстановщик мягких переносов для русского языка",
-  "main": "dist/wordbreaker-russian.min.bundle.js",
+  "main": "docs/wordbreaker-russian.min.bundle.js",
   "scripts": {
     "build": "webpack",
     "buildprod": "cross-env PROD_ENV=1 webpack",
