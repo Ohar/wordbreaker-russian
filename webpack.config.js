@@ -7,6 +7,41 @@ const path               = require('path'),
 
 const PROD = Boolean(JSON.parse(process.env.PROD_ENV || '0'));
 
+const plugins = {
+    common: [
+
+        new CleanWebpackPlugin(['docs']),
+        new UglifyJsPlugin(
+            {
+                compress: PROD,
+                comments: !PROD,
+                beautify: !PROD,
+            }
+        ),
+        new ExtractTextPlugin('[name].css'),
+    ],
+    dev: [
+        new BrowserSyncPlugin(
+            {
+                host  : process.env.IP || 'localhost',
+                port  : process.env.PORT || 3000,
+                open  : false,
+                server: {
+                    baseDir: ['./docs']
+                }
+            }
+        ),
+
+    ],
+    prod: [
+        new HtmlWebpackPlugin(
+            {
+                template: 'src/demo/index.ejs',
+            }
+        ),
+    ],
+}
+
 module.exports = {
     entry  : {
         'wordbreaker-russian': [
@@ -26,33 +61,12 @@ module.exports = {
             ? '[name].min.bundle.js'
             : '[name].bundle.js',
     },
-    watch  : true,
-    plugins: [
-        new UglifyJsPlugin(
-            {
-                compress: PROD,
-                comments: !PROD,
-                beautify: !PROD,
-            }
-        ),
-        new CleanWebpackPlugin(['docs']),
-        new HtmlWebpackPlugin(
-            {
-                template: 'src/demo/index.ejs',
-            }
-        ),
-        new ExtractTextPlugin('[name].css'),
-        new BrowserSyncPlugin(
-            {
-                host  : process.env.IP || 'localhost',
-                port  : process.env.PORT || 3000,
-                open  : false,
-                server: {
-                    baseDir: ['./docs']
-                }
-            }
-        ),
-    ],
+    watch  : !PROD,
+    plugins: plugins.common.concat(
+        PROD
+            ? plugins.prod
+            : plugins.dev
+    ),
     module : {
         rules: [
             {
