@@ -2,7 +2,7 @@
   "name": "wordbreaker-russian",
   "version": "0.2.2",
   "description": "Расстановщик мягких переносов для русского языка",
-  "main": "docs/wordbreaker-russian.min.bundle.js",
+  "main": "src/wordbreaker-russian",
   "scripts": {
     "build": "webpack",
     "buildprod": "cross-env PROD_ENV=1 webpack",
@@ -50,5 +50,8 @@
     "react-dom": "^15.6.1",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.3.0"
+  },
+  "engines": {
+    "node": ">=7.6.0"
   }
 }
