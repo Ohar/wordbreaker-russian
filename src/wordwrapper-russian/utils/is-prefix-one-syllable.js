@@ -1,15 +1,15 @@
-'use strict';
+'use strict'
 
-import isVowel from './../utils/is-vowel';
+import isVowel from './../utils/is-vowel'
 
 export default function isPrefixOneSyllable (prefix) {
-    let vowels = 0;
+    let vowels = 0
 
     for (let i = 0; i < prefix.length; i++) {
         if (isVowel(prefix[i])) {
-            vowels++;
+            vowels++
         }
     }
 
-    return Boolean(vowels === 1);
+    return Boolean(vowels === 1)
 }

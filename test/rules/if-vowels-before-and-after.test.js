@@ -1,106 +1,105 @@
-'use strict';
+'use strict'
 
-const chai                   = require('chai'),
-      ifVowelsBeforeAndAfter = require('./../../src/rules/if-vowels-before-and-after');
+const chai = require('chai')
+
+const ifVowelsBeforeAndAfter = require('./../../src/wordwrapper-russian/rules/if-vowels-before-and-after')
 
 describe(
-  'ifVowelsBeforeAndAfter', () => {
-
-    it(
-      'Это функция', () => {
-        chai.assert.isFunction(ifVowelsBeforeAndAfter);
-      }
-    );
-
-    describe(
-      'Правильно работает', () => {
-
+    'ifVowelsBeforeAndAfter', () => {
         it(
-          'просмотр', () => {
-            const word   = 'просмотр'.split(''),
-                  inputs = [
-                    {
-                      position: 0,
-                      result  : true,
-                    },
-                    {
-                      position: 1,
-                      result  : true,
-                    },
-                    {
-                      position: 2,
-                      result  : false,
-                    },
-                    {
-                      position: 3,
-                      result  : true,
-                    },
-                    {
-                      position: 4,
-                      result  : true,
-                    },
-                    {
-                      position: 5,
-                      result  : true,
-                    },
-                    {
-                      position: 6,
-                      result  : true,
-                    },
-                  ];
+            'Это функция', () => {
+                chai.assert.isFunction(ifVowelsBeforeAndAfter)
+            }
+        )
 
-            inputs.forEach(
-              input => {
-                chai.assert.equal(
-                  ifVowelsBeforeAndAfter(
-                    input.position,
-                    word
-                  ),
-                  input.result
-                );
-              }
-            );
-          }
-        );
+        describe(
+            'Правильно работает', () => {
+                it(
+                    'просмотр', () => {
+                        const word = 'просмотр'.split('')
 
-        it(
-          'страх', () => {
-            const word   = 'страх'.split(''),
-                  inputs = [
-                    {
-                      position: 0,
-                      result  : true,
-                    },
-                    {
-                      position: 1,
-                      result  : true,
-                    },
-                    {
-                      position: 2,
-                      result  : true,
-                    },
-                    {
-                      position: 3,
-                      result  : true,
-                    },
-                  ];
+                        const inputs = [
+                            {
+                                position: 0,
+                                result: true,
+                            },
+                            {
+                                position: 1,
+                                result: true,
+                            },
+                            {
+                                position: 2,
+                                result: false,
+                            },
+                            {
+                                position: 3,
+                                result: true,
+                            },
+                            {
+                                position: 4,
+                                result: true,
+                            },
+                            {
+                                position: 5,
+                                result: true,
+                            },
+                            {
+                                position: 6,
+                                result: true,
+                            },
+                        ]
 
-            inputs.forEach(
-              input => {
-                chai.assert.equal(
-                  ifVowelsBeforeAndAfter(
-                    input.position,
-                    word
-                  ),
-                  input.result
-                );
-              }
-            );
-          }
-        );
+                        inputs.forEach(
+                            input => {
+                                chai.assert.equal(
+                                    ifVowelsBeforeAndAfter(
+                                        input.position,
+                                        word
+                                    ),
+                                    input.result
+                                )
+                            }
+                        )
+                    }
+                )
 
-      }
-    );
+                it(
+                    'страх', () => {
+                        const word = 'страх'.split('')
 
-  }
-);
+                        const inputs = [
+                            {
+                                position: 0,
+                                result: true,
+                            },
+                            {
+                                position: 1,
+                                result: true,
+                            },
+                            {
+                                position: 2,
+                                result: true,
+                            },
+                            {
+                                position: 3,
+                                result: true,
+                            },
+                        ]
+
+                        inputs.forEach(
+                            input => {
+                                chai.assert.equal(
+                                    ifVowelsBeforeAndAfter(
+                                        input.position,
+                                        word
+                                    ),
+                                    input.result
+                                )
+                            }
+                        )
+                    }
+                )
+            }
+        )
+    }
+)

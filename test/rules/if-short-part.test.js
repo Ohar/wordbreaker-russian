@@ -1,60 +1,56 @@
-'use strict';
-
-const chai        = require('chai'),
-      ifShortPart = require('./../../src/rules/if-short-part');
+const chai = require('chai')
+const ifShortPart = require('./../../src/wordwrapper-russian/rules/if-short-part')
 
 describe(
-  'ifShortPart', () => {
+    'ifShortPart', () => {
+        it(
+            'Это функция', () => {
+                chai.assert.isFunction(ifShortPart)
+            }
+        )
 
-    it(
-      'Это функция', () => {
-        chai.assert.isFunction(ifShortPart);
-      }
-    );
+        it(
+            'Правильно работает', () => {
+                const inputs = [
+                    {
+                        position: 0,
+                        word: 'акация',
+                        result: true,
+                    },
+                    {
+                        position: 1,
+                        word: 'акация',
+                        result: false,
+                    },
+                    {
+                        position: 2,
+                        word: 'акация',
+                        result: false,
+                    },
+                    {
+                        position: 3,
+                        word: 'акация',
+                        result: false,
+                    },
+                    {
+                        position: 4,
+                        word: 'акация',
+                        result: true,
+                    },
+                ]
 
-    it(
-      'Правильно работает', () => {
-        const inputs = [
-          {
-            position: 0,
-            word    : 'акация',
-            result  : true,
-          },
-          {
-            position: 1,
-            word    : 'акация',
-            result  : false,
-          },
-          {
-            position: 2,
-            word    : 'акация',
-            result  : false,
-          },
-          {
-            position: 3,
-            word    : 'акация',
-            result  : false,
-          },
-          {
-            position: 4,
-            word    : 'акация',
-            result  : true,
-          },
-        ];
-
-        inputs.forEach(
-          input => {
-            chai.assert.equal(
-              ifShortPart(
-                input.position,
-                input.word.split('')
-              ),
-              input.result
-            );
-          }
-        );
-      }
-    );
-
-  }
-);
+                inputs.forEach(
+                    input => {
+                        chai.assert.equal(
+                            ifShortPart(
+                                input.position,
+                                input.word.split('')
+                            ),
+                            input.result
+                        )
+                    }
+                )
+            }
+        )
+    }
+)

@@ -1,3 +1,3 @@
-const SOFT_HYPHEN = "\u00AD";
+const SOFT_HYPHEN = '\u00AD'
 
-export default SOFT_HYPHEN;
+export default SOFT_HYPHEN

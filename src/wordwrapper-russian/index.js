@@ -20,5 +20,5 @@ export default function wordbreakerRussian (text) {
                 )
                 .join('-')
         )
-        .join(' ');
+        .join(' ')
 }
