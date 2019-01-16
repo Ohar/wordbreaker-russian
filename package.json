@@ -20,7 +20,7 @@
     "break",
     "hyphen"
   ],
-  "author": "Pavel Lysenko aka Ohar",
+  "author": "Pavel Lysenko aka Ohar <code@ohar.name>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Ohar/wordbreaker-russian/issues"
