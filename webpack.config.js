@@ -12,7 +12,6 @@ const plugins = {
         new CleanWebpackPlugin(['docs']),
         new UglifyJsPlugin(
             {
-                compress: PROD,
                 comments: !PROD,
                 beautify: !PROD,
             }
@@ -47,10 +46,16 @@ module.exports = {
             'babel-polyfill',
             path.resolve(__dirname, 'src/wordbreaker-russian/index.js'),
         ],
-        demo                 : [
-            'babel-polyfill',
-            path.resolve(__dirname, 'src/demo/index.jsx'),
-        ],
+        ...(
+            PROD
+                ? {
+                demo: [
+                    'babel-polyfill',
+                    path.resolve(__dirname, 'src/demo/index.jsx'),
+                ],
+            }
+            : {}
+        ),
     },
     output : {
         pathinfo  : true,

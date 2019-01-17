@@ -17,7 +17,8 @@
     "import",
     "node",
     "promise",
-    "standard"
+    "standard",
+    "react"
   ],
 
   "globals": {
