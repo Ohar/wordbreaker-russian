@@ -7,7 +7,7 @@ import DemoDescription from './../DemoDescription';
 import WordList from './../WordList';
 import BtnAdd from './../BtnAdd';
 import BtnRemove from './../BtnRemove';
-import wordwrapper from './../../../wordwrapper-russian';
+import wordwrapper from './../../../wordbreaker-russian';
 
 export default class DemoPage extends Component {
     constructor (props) {

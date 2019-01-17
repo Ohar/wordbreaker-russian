@@ -1,5 +1,5 @@
 const chai = require('chai')
-const CONSONANTS = require('./../../src/wordwrapper-russian/consts/consonants')
+const CONSONANTS = require('./../../src/wordbreaker-russian/consts/consonants')
 
 describe(
     'CONSONANTS', () => {

@@ -1,5 +1,5 @@
 const chai = require('chai')
-const ifInsideOneSyllablePrefixWithNextConsonant = require('./../../src/wordwrapper-russian/rules/if-inside-one-syllable-prefix-with-next-consonant')
+const ifInsideOneSyllablePrefixWithNextConsonant = require('./../../src/wordbreaker-russian/rules/if-inside-one-syllable-prefix-with-next-consonant')
 
 describe(
     'ifInsideOneSyllablePrefixWithNextConsonant', () => {

@@ -1,5 +1,5 @@
 const chai = require('chai')
-const PREFIXES = require('./../../src/wordwrapper-russian/consts/prefixes')
+const PREFIXES = require('./../../src/wordbreaker-russian/consts/prefixes')
 
 describe(
     'PREFIXES', () => {

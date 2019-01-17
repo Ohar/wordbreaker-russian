@@ -1,5 +1,5 @@
 const chai = require('chai')
-const ifShortPart = require('./../../src/wordwrapper-russian/rules/if-short-part')
+const ifShortPart = require('./../../src/wordbreaker-russian/rules/if-short-part')
 
 describe(
     'ifShortPart', () => {

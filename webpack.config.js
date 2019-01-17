@@ -45,7 +45,7 @@ module.exports = {
     entry  : {
         'wordbreaker-russian': [
             'babel-polyfill',
-            path.resolve(__dirname, 'src/wordwrapper-russian/index.js'),
+            path.resolve(__dirname, 'src/wordbreaker-russian/index.js'),
         ],
         demo                 : [
             'babel-polyfill',

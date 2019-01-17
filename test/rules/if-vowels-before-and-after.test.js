@@ -2,7 +2,7 @@
 
 const chai = require('chai')
 
-const ifVowelsBeforeAndAfter = require('./../../src/wordwrapper-russian/rules/if-vowels-before-and-after')
+const ifVowelsBeforeAndAfter = require('./../../src/wordbreaker-russian/rules/if-vowels-before-and-after')
 
 describe(
     'ifVowelsBeforeAndAfter', () => {

@@ -1,5 +1,5 @@
 const chai = require('chai')
-const SOFT_HYPHEN = require('./../../src/wordwrapper-russian/consts/soft-hyphen')
+const SOFT_HYPHEN = require('./../../src/wordbreaker-russian/consts/soft-hyphen')
 
 describe(
     'SOFT_HYPHEN', () => {

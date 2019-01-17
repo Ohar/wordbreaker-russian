@@ -1,5 +1,5 @@
 const chai = require('chai')
-const ifVowelWithNextKratkaya = require('./../../src/wordwrapper-russian/rules/if-vowel-with-next-kratkaya')
+const ifVowelWithNextKratkaya = require('./../../src/wordbreaker-russian/rules/if-vowel-with-next-kratkaya')
 
 describe(
     'ifVowelWithNextKratkaya', () => {
