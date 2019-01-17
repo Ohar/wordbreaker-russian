@@ -1,20 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Wordbreaker (Russian) — расстановщик мягких переносов</title>
+    <title><%= title %></title>
+    <meta name="description"
+          content="<%= description %>"/>
     <meta name="copyright"
-          content="2015, © Pavel Lysenko aka Ohar" />
+          content="<%= year %>, © <%= author %>"/>
     <meta http-equiv="Content-Type"
           content="text/html; charset=UTF-8">
+    <meta name="version"
+          content="<%= version %>">
     <style>
         body {
             font-family: Verdana, Tahoma, sans-serif;
             overflow-x: hidden;
         }
+        .header {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
     </style>
+    <link href="./demo.css" rel="stylesheet"></head>
 </head>
 <body>
-<div id="root"></div>
+<main>
+    <header class="header"><%= title %> v.<%= version %></header>
+    <p class="description"><%= description %></p>
+
+    <section class="DemoDescription">
+        <h2>Описание</h2>
+
+        <p>
+            Расставляет мягкие переносы в текстах на русском языке.<br/>
+            Решает проблему Константина
+            <span class="constantine">Константинопольского</span>
+        </p>
+
+        <p>
+            <a target="_blank"
+               href="<%= homepage %>">
+                Код на GitHub
+            </a>
+        </p>
+
+        <p>
+            TODO: полное соответсвие
+            <a target="_blank"
+               rel="nofollow"
+               href="http://new.gramota.ru/spravka/rules/141-perenos">
+                правилам русской орфографии и пунктуации (1956)
+            </a>
+        </p>
+    </section>
+
+    <div id="root"></div>
+</main>
+
+<script type="text/javascript" src="./demo.bundle.js"></script>
+<script type="text/javascript" src="./wordbreaker-russian.bundle.js"></script>
 
 </body>
 </html>

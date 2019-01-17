@@ -3,7 +3,6 @@ import './style.css';
 import WORDS_TO_WRAP from './../../consts/words_to_wrap';
 import DEFAULT_WIDTH from './../../consts/default_width';
 import WidthChanger from './../WidthChanger';
-import DemoDescription from './../DemoDescription';
 import WordList from './../WordList';
 import BtnAdd from './../BtnAdd';
 import BtnRemove from './../BtnRemove';
@@ -38,10 +37,6 @@ export default class DemoPage extends Component {
     render () {
         return (
             <section className="DemoPage">
-                <h1>WordWrapper — расстановщик мягких переносов</h1>
-
-                <DemoDescription/>
-
                 <h2>Демо</h2>
 
                 <WidthChanger onChange={this.widthChange}
