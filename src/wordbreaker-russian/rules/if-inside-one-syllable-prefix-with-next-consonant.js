@@ -7,10 +7,9 @@ import getLetter from './../utils/get-letter'
 import isConsonant from './../utils/is-consonant'
 import ifInsideOfOneSyllablePrefix from './../utils/if-inside-of-one-syllable-prefix'
 
-export default function ifInsideOneSyllablePrefixWithNextConsonant (pos, arr) {
-    const word              = arr.join('')
+export default function ifInsideOneSyllablePrefixWithNextConsonant (pos, word) {
     const prefix            = getPrefix(word)
-    const letterAfterPrefix = getLetter(prefix.length, arr)
+    const letterAfterPrefix = getLetter(prefix.length, word)
 
     return ifInsideOfOneSyllablePrefix(pos, prefix) &&
            isConsonant(letterAfterPrefix)
