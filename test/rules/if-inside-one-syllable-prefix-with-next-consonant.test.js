@@ -1,5 +1,5 @@
 import chai from 'chai'
-import ifInsideOneSyllablePrefixWithNextConsonant from '@/wordbreaker-russian/rules/if-inside-one-syllable-prefix-with-next-consonant'
+import ifInsideOneSyllablePrefixWithNextConsonant from '@/wordbreaker-russian/rules/119.4-if-inside-one-syllable-prefix-with-next-consonant'
 
 describe(
     'ifInsideOneSyllablePrefixWithNextConsonant',

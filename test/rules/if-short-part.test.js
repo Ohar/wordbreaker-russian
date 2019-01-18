@@ -1,5 +1,5 @@
 import chai from 'chai'
-import ifShortPart from '@/wordbreaker-russian/rules/if-short-part'
+import ifShortPart from '@/wordbreaker-russian/rules/119.3-if-short-part'
 
 describe(
     'ifShortPart',

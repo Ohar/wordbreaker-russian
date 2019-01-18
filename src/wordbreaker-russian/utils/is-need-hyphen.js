@@ -1,12 +1,12 @@
 'use strict'
 
-import ifInsideOneSyllablePrefixWithNextConsonant from './../rules/if-inside-one-syllable-prefix-with-next-consonant'
-import ifShortPart from './../rules/if-short-part'
-import ifVowelsBeforeAndAfter from './../rules/if-vowels-before-and-after'
-import ifVowelWithNextKratkaya from './../rules/if-vowel-with-next-kratkaya'
-import isConsonantWithNextVowel from './../rules/is-consonant-with-next-vowel'
-import isConsonantWithNextLetterSign from './../rules/is-consonant-with-next-letter-sign'
-import isDoubleConsonantWithVowels from './../rules/is-double-consonant-with-vowels'
+import ifVowelsBeforeAndAfter from '../rules/117-if-vowels-before-and-after'
+import isConsonantWithNextVowel from '../rules/118.0-is-consonant-with-next-vowel'
+import isConsonantWithNextLetterSign from '../rules/119.1-is-consonant-with-next-letter-sign'
+import ifVowelWithNextKratkaya from '../rules/119.2-if-vowel-with-next-kratkaya'
+import ifShortPart from '../rules/119.3-if-short-part'
+import ifInsideOneSyllablePrefixWithNextConsonant from '../rules/119.4-if-inside-one-syllable-prefix-with-next-consonant'
+import isDoubleConsonantWithVowels from '../rules/119.7-is-double-consonant-with-vowels'
 
 export default function isNeedHyphen (pos, arr) {
     return (

@@ -1,5 +1,5 @@
 import chai from 'chai'
-import ifVowelsBeforeAndAfter from '@/wordbreaker-russian/rules/if-vowels-before-and-after'
+import ifVowelsBeforeAndAfter from '@/wordbreaker-russian/rules/117-if-vowels-before-and-after'
 
 describe(
     'ifVowelsBeforeAndAfter',

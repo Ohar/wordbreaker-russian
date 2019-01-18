@@ -1,5 +1,5 @@
 import chai from 'chai'
-import isConsonantWithNextLetterSign from '@/wordbreaker-russian/rules/is-consonant-with-next-letter-sign'
+import isConsonantWithNextLetterSign from '@/wordbreaker-russian/rules/119.1-is-consonant-with-next-letter-sign'
 
 describe(
     'isConsonantWithNextLetterSign',

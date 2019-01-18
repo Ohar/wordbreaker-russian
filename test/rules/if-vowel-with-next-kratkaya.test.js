@@ -1,5 +1,5 @@
 import chai from 'chai'
-import ifVowelWithNextKratkaya from '@/wordbreaker-russian/rules/if-vowel-with-next-kratkaya'
+import ifVowelWithNextKratkaya from '@/wordbreaker-russian/rules/119.2-if-vowel-with-next-kratkaya'
 
 describe(
     'ifVowelWithNextKratkaya',
