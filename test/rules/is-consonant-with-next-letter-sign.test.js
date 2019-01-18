@@ -2,7 +2,8 @@ import chai from 'chai'
 import isConsonantWithNextLetterSign from '@/wordbreaker-russian/rules/is-consonant-with-next-letter-sign'
 
 describe(
-    'isConsonantWithNextLetterSign', () => {
+    'isConsonantWithNextLetterSign',
+    () => {
         it(
             'Это функция',
             () => chai.assert.isFunction(isConsonantWithNextLetterSign)
@@ -13,7 +14,7 @@ describe(
             () => {
                 const testCaseArr = [
                     {
-                        inputWord: 'курьер',
+                        input: 'курьер',
                         expectedOutput: [
                             false,
                             false,
@@ -24,24 +25,8 @@ describe(
                         ],
                     },
                     {
-                        inputWord: 'объявление',
+                        input: 'объявление',
                         expectedOutput: [
-                            false,
-                            true,
-                            false,
-                            false,
-                            false,
-                            false,
-                            false,
-                            false,
-                            false,
-                            false,
-                        ],
-                    },
-                    {
-                        inputWord: 'подъязычный',
-                        expectedOutput: [
-                            false,
                             false,
                             true,
                             false,
@@ -55,7 +40,23 @@ describe(
                         ],
                     },
                     {
-                        inputWord: 'сласть',
+                        input: 'подъязычный',
+                        expectedOutput: [
+                            false,
+                            false,
+                            true,
+                            false,
+                            false,
+                            false,
+                            false,
+                            false,
+                            false,
+                            false,
+                            false,
+                        ],
+                    },
+                    {
+                        input: 'сласть',
                         expectedOutput: [
                             false,
                             false,
@@ -68,16 +69,16 @@ describe(
                 ]
 
                 testCaseArr.forEach(
-                    ({inputWord, expectedOutput}) => {
+                    ({input, expectedOutput}) => {
                         it(
-                            inputWord,
+                            input,
                             () => {
                                 expectedOutput.forEach(
                                     (result, i) => {
                                         chai.assert.equal(
                                             isConsonantWithNextLetterSign(
                                                 i,
-                                                inputWord
+                                                input
                                             ),
                                             result
                                         )

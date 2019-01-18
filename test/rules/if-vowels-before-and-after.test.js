@@ -2,7 +2,8 @@ import chai from 'chai'
 import ifVowelsBeforeAndAfter from '@/wordbreaker-russian/rules/if-vowels-before-and-after'
 
 describe(
-    'ifVowelsBeforeAndAfter', () => {
+    'ifVowelsBeforeAndAfter',
+    () => {
         it(
             'Это функция',
             () => chai.assert.isFunction(ifVowelsBeforeAndAfter)

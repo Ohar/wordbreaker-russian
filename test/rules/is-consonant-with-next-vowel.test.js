@@ -2,7 +2,8 @@ import chai from 'chai'
 import isConsonantWithNextVowel from '@/wordbreaker-russian/rules/is-consonant-with-next-vowel'
 
 describe(
-    'isConsonantWithNextVowel', () => {
+    'isConsonantWithNextVowel',
+    () => {
         it(
             'Это функция',
             () => chai.assert.isFunction(isConsonantWithNextVowel)
@@ -13,7 +14,7 @@ describe(
             () => {
                 const testCaseArr = [
                     {
-                        inputWord: 'курьер',
+                        input: 'курьер',
                         expectedOutput: [
                             true,   // к
                             false,  // у
@@ -24,7 +25,7 @@ describe(
                         ],
                     },
                     {
-                        inputWord: 'объявление',
+                        input: 'объявление',
                         expectedOutput: [
                             false,  // о
                             false,  // б
@@ -39,7 +40,7 @@ describe(
                         ],
                     },
                     {
-                        inputWord: 'подъязычный',
+                        input: 'подъязычный',
                         expectedOutput: [
                             true,   // п
                             false,  // о
@@ -55,7 +56,7 @@ describe(
                         ],
                     },
                     {
-                        inputWord: 'сласть',
+                        input: 'сласть',
                         expectedOutput: [
                             false,  // с
                             true,   // л
@@ -68,16 +69,16 @@ describe(
                 ]
 
                 testCaseArr.forEach(
-                    ({inputWord, expectedOutput}) => {
+                    ({input, expectedOutput}) => {
                         it(
-                            inputWord,
+                            input,
                             () => {
                                 expectedOutput.forEach(
                                     (result, i) => {
                                         chai.assert.equal(
                                             isConsonantWithNextVowel(
                                                 i,
-                                                inputWord
+                                                input
                                             ),
                                             result
                                         )

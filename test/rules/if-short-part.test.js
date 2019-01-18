@@ -14,7 +14,7 @@ describe(
             () => {
                 const testCaseArr = [
                     {
-                        inputWord: 'секуляризм',
+                        input: 'секуляризм',
                         expectedOutput: [
                             true,   // с
                             false,  // е
@@ -29,7 +29,7 @@ describe(
                         ],
                     },
                     {
-                        inputWord: 'акация',
+                        input: 'акация',
                         expectedOutput: [
                             true,   // а
                             false,  // к
@@ -42,16 +42,16 @@ describe(
                 ]
 
                 testCaseArr.forEach(
-                    ({inputWord, expectedOutput}) => {
+                    ({input, expectedOutput}) => {
                         it(
-                            inputWord,
+                            input,
                             () => {
                                 expectedOutput.forEach(
                                     (result, i) => {
                                         chai.assert.equal(
                                             ifShortPart(
                                                 i,
-                                                inputWord
+                                                input
                                             ),
                                             result
                                         )

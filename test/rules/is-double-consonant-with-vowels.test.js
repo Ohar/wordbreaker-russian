@@ -2,7 +2,8 @@ import chai from 'chai'
 import isDoubleConsonantWithVowels from '@/wordbreaker-russian/rules/is-double-consonant-with-vowels'
 
 describe(
-    'isDoubleConsonantWithVowels', () => {
+    'isDoubleConsonantWithVowels',
+    () => {
         it(
             'Это функция',
             () => chai.assert.isFunction(isDoubleConsonantWithVowels)

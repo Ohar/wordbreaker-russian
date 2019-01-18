@@ -14,7 +14,7 @@ describe(
             () => {
                 const testCaseArr = [
                     {
-                        inputWord: 'война',
+                        input: 'война',
                         expectedOutput: [
                             false,  // в
                             true,   // о
@@ -24,7 +24,7 @@ describe(
                         ],
                     },
                     {
-                        inputWord: 'стойкий',
+                        input: 'стойкий',
                         expectedOutput: [
                             false,  // с
                             false,  // т
@@ -36,7 +36,7 @@ describe(
                         ],
                     },
                     {
-                        inputWord: 'фейерверк',
+                        input: 'фейерверк',
                         expectedOutput: [
                             false,  // ф
                             true,   // е
@@ -50,7 +50,7 @@ describe(
                         ],
                     },
                     {
-                        inputWord: 'майор',
+                        input: 'майор',
                         expectedOutput: [
                             false,  // м
                             true,   // а
@@ -62,16 +62,16 @@ describe(
                 ]
 
                 testCaseArr.forEach(
-                    ({inputWord, expectedOutput}) => {
+                    ({input, expectedOutput}) => {
                         it(
-                            inputWord,
+                            input,
                             () => {
                                 expectedOutput.forEach(
                                     (result, i) => {
                                         chai.assert.equal(
                                             ifVowelWithNextKratkaya(
                                                 i,
-                                                inputWord
+                                                input
                                             ),
                                             result
                                         )

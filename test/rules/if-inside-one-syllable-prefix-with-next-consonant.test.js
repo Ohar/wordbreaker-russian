@@ -2,7 +2,8 @@ import chai from 'chai'
 import ifInsideOneSyllablePrefixWithNextConsonant from '@/wordbreaker-russian/rules/if-inside-one-syllable-prefix-with-next-consonant'
 
 describe(
-    'ifInsideOneSyllablePrefixWithNextConsonant', () => {
+    'ifInsideOneSyllablePrefixWithNextConsonant',
+    () => {
         it(
             'Это функция',
             () => chai.assert.isFunction(ifInsideOneSyllablePrefixWithNextConsonant)
@@ -13,7 +14,7 @@ describe(
             () => {
                 const testCaseArr = [
                     {
-                        inputWord: 'подбить',
+                        input: 'подбить',
                         expectedOutput: [
                             true,   // п
                             true,   // о
@@ -25,7 +26,7 @@ describe(
                         ],
                     },
                     {
-                        inputWord: 'размах',
+                        input: 'размах',
                         expectedOutput: [
                             true,   // р
                             true,   // а
@@ -38,16 +39,16 @@ describe(
                 ]
 
                 testCaseArr.forEach(
-                    ({inputWord, expectedOutput}) => {
+                    ({input, expectedOutput}) => {
                         it(
-                            inputWord,
+                            input,
                             () => {
                                 expectedOutput.forEach(
                                     (result, i) => {
                                         chai.assert.equal(
                                             ifInsideOneSyllablePrefixWithNextConsonant(
                                                 i,
-                                                inputWord
+                                                input
                                             ),
                                             result
                                         )
