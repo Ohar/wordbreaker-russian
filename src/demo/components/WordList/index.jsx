@@ -1,5 +1,5 @@
 import React from 'react';
-import Word from './../Word';
+import Word from 'demo/components/Word';
 
 export default function WordList ({words, width}) {
     return (

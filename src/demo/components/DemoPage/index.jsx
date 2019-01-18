@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
+import WORDS_TO_WRAP from 'demo/consts/words_to_wrap';
+import DEFAULT_WIDTH from 'demo/consts/default_width';
+import WidthChanger from 'demo/components/WidthChanger';
+import WordList from 'demo/components/WordList';
+import BtnAdd from 'demo/components/BtnAdd';
+import BtnRemove from 'demo/components/BtnRemove';
+import wordbreaker from 'root/wordbreaker-russian';
 import './style.css';
-import WORDS_TO_WRAP from './../../consts/words_to_wrap';
-import DEFAULT_WIDTH from './../../consts/default_width';
-import WidthChanger from './../WidthChanger';
-import WordList from './../WordList';
-import BtnAdd from './../BtnAdd';
-import BtnRemove from './../BtnRemove';
-import wordwrapper from './../../../wordbreaker-russian';
 
 export default class DemoPage extends Component {
     constructor (props) {
@@ -23,7 +23,7 @@ export default class DemoPage extends Component {
     }
 
     addSoftHyphens () {
-        this.setState({words: WORDS_TO_WRAP.map(wordwrapper)})
+        this.setState({words: WORDS_TO_WRAP.map(wordbreaker)})
     }
 
     removeSoftHyphens () {

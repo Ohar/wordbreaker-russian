@@ -1,10 +1,3 @@
-.constantine {
-  display: inline-block;
-  vertical-align: middle;
-  max-width: 7em;
-  overflow: auto;
-  text-overflow: ellipsis;
-}
 .Word {
   max-width: 7em;
   background-color: gold;
@@ -22,4 +15,11 @@
 }
 .BtnRemove:before {
   content: '\2212   ';
+}
+.constantine {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 7em;
+  overflow: auto;
+  text-overflow: ellipsis;
 }
