@@ -1,5 +1,6 @@
 import CONSONANTS from './../consts/consonants'
+import inList from './../utils/in-list'
 
 export default function isConsonant (s) {
-  return Boolean(s && CONSONANTS.includes(s.toLowerCase()))
+  return inList(CONSONANTS, s)
 }

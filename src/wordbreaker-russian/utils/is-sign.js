@@ -1,5 +1,6 @@
 import SIGN_LIST from './../consts/signList'
+import inList from './../utils/in-list'
 
 export default function isSign (s) {
-  return Boolean(s && SIGN_LIST.includes(s.toLowerCase()))
+  return inList(SIGN_LIST, s)
 }

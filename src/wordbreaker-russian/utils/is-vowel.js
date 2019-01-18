@@ -1,5 +1,6 @@
 import VOWELS from './../consts/vowels'
+import inList from './../utils/in-list'
 
 export default function isVowel (s) {
-  return Boolean(s && VOWELS.includes(s.toLowerCase()))
+  return inList(VOWELS, s)
 }
