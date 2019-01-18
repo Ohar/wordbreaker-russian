@@ -1,5 +1,5 @@
-const chai = require('chai')
-const SOFT_HYPHEN = require('./../../src/wordbreaker-russian/consts/soft-hyphen')
+import chai from 'chai'
+import SOFT_HYPHEN from '@/wordbreaker-russian/consts/soft-hyphen'
 
 describe(
     'SOFT_HYPHEN', () => {

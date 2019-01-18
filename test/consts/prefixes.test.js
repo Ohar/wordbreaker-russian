@@ -1,5 +1,5 @@
-const chai = require('chai')
-const PREFIXES = require('./../../src/wordbreaker-russian/consts/prefixes')
+import chai from 'chai'
+import PREFIXES from '@/wordbreaker-russian/consts/prefixes'
 
 describe(
     'PREFIXES', () => {

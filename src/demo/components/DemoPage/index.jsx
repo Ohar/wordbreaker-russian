@@ -5,7 +5,7 @@ import WidthChanger from 'demo/components/WidthChanger';
 import WordList from 'demo/components/WordList';
 import BtnAdd from 'demo/components/BtnAdd';
 import BtnRemove from 'demo/components/BtnRemove';
-import wordbreaker from 'root/wordbreaker-russian';
+import wordbreaker from '@/wordbreaker-russian';
 import './style.css';
 
 export default class DemoPage extends Component {

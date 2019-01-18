@@ -11,7 +11,8 @@
   "env": {
     "es6": true,
     "node": true,
-    "mocha": true
+    "jest": true,
+    "jest/globals": true
   },
 
   "plugins": [
@@ -19,7 +20,8 @@
     "node",
     "promise",
     "standard",
-    "react"
+    "react",
+    "jest"
   ],
 
   "globals": {

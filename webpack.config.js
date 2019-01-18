@@ -119,7 +119,7 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx'],
         alias     : {
-            root: path.join(__dirname, '/src'),
+            '@' : path.join(__dirname, '/src'),
             demo: path.join(__dirname, '/src/demo'),
         },
     },

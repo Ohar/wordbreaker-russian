@@ -1,5 +1,5 @@
-const chai = require('chai')
-const CONSONANTS = require('./../../src/wordbreaker-russian/consts/consonants')
+import chai from 'chai'
+import CONSONANTS from '@/wordbreaker-russian/consts/consonants'
 
 describe(
     'CONSONANTS', () => {

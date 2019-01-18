@@ -1,8 +1,8 @@
 'use strict'
 
-const chai = require('chai')
+import chai from 'chai'
 
-const ifVowelsBeforeAndAfter = require('./../../src/wordbreaker-russian/rules/if-vowels-before-and-after')
+import ifVowelsBeforeAndAfter from '@/wordbreaker-russian/rules/if-vowels-before-and-after'
 
 describe(
     'ifVowelsBeforeAndAfter', () => {

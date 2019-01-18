@@ -1,5 +1,5 @@
-const chai = require('chai')
-const ifShortPart = require('./../../src/wordbreaker-russian/rules/if-short-part')
+import chai from 'chai'
+import ifShortPart from '@/wordbreaker-russian/rules/if-short-part'
 
 describe(
     'ifShortPart', () => {

@@ -1,7 +1,7 @@
 'use strict'
 
-const chai = require('chai')
-const wordbreakerRussian = require('./../src/wordbreaker-russian')
+import chai from 'chai'
+import wordbreakerRussian from '@/wordbreaker-russian/index'
 
 describe(
     'wordbreakerRussian', () => {
