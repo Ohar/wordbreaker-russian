@@ -7,6 +7,7 @@ import ifVowelWithNextKratkaya from '../rules/119.2-if-vowel-with-next-kratkaya'
 import ifShortPart from '../rules/119.3-if-short-part'
 import ifInsideOneSyllablePrefixWithNextConsonant from '../rules/119.4-if-inside-one-syllable-prefix-with-next-consonant'
 import isDoubleConsonantWithVowels from '../rules/119.7-is-double-consonant-with-vowels'
+import isOpenBraceOrQuotes from '../rules/124-is-open-brace-or-quotes'
 
 export default function isNeedHyphen (pos, arr) {
     return (
@@ -16,6 +17,7 @@ export default function isNeedHyphen (pos, arr) {
         !ifVowelWithNextKratkaya(pos, arr) && // 119.2
         !ifShortPart(pos, arr) && // 119.3
         !ifInsideOneSyllablePrefixWithNextConsonant(pos, arr) && // 119.4
-        !isDoubleConsonantWithVowels(pos, arr) // 119.7
+        !isDoubleConsonantWithVowels(pos, arr) && // 119.7
+        !isOpenBraceOrQuotes(pos, arr) // 124
     )
 }
