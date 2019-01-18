@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const UglifyJsPlugin     = require('uglifyjs-webpack-plugin')
 const escape             = require('lodash/escape')
 
-const {author, name: title, description, homepage, version} = require('./package.json')
+const {author, name: title, description, repository: {url: repositoryUrl}, version} = require('./package.json')
 
 const PROD = Boolean(JSON.parse(process.env.PROD_ENV || '0'))
 
@@ -101,7 +101,9 @@ module.exports = {
                             data: {
                                 author: escape(author),
                                 description,
-                                homepage,
+                                repositoryUrl: repositoryUrl
+                                    .replace(/^git\+/, '')
+                                    .replace(/\.git$/, ''),
                                 title,
                                 version,
                                 year,
