@@ -4,9 +4,9 @@
 import getLetter from './../utils/get-letter'
 import isVowel from './../utils/is-vowel'
 
-export default function ifVowelWithNextKratkaya (pos, arr) {
-    const cur  = getLetter(pos, arr)
-    const next = getLetter(pos + 1, arr)
+export default function ifVowelWithNextKratkaya (pos, word) {
+    const curr = getLetter(pos, word)
+    const next = getLetter(pos + 1, word)
 
-    return isVowel(cur) && next === 'й'
+    return isVowel(curr) && next === 'й'
 }
