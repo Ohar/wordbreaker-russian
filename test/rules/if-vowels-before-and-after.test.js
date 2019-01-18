@@ -14,91 +14,95 @@ describe(
 
         describe(
             'Правильно работает', () => {
-                it(
-                    'просмотр', () => {
-                        const word = 'просмотр'.split('')
+                {
+                    const word = 'просмотр'
 
-                        const inputs = [
-                            {
-                                position: 0,
-                                result: true,
-                            },
-                            {
-                                position: 1,
-                                result: true,
-                            },
-                            {
-                                position: 2,
-                                result: false,
-                            },
-                            {
-                                position: 3,
-                                result: true,
-                            },
-                            {
-                                position: 4,
-                                result: true,
-                            },
-                            {
-                                position: 5,
-                                result: true,
-                            },
-                            {
-                                position: 6,
-                                result: true,
-                            },
-                        ]
+                    it(
+                        word, () => {
+                            const inputs = [
+                                {
+                                    position: 0,
+                                    result: true,
+                                },
+                                {
+                                    position: 1,
+                                    result: true,
+                                },
+                                {
+                                    position: 2,
+                                    result: false,
+                                },
+                                {
+                                    position: 3,
+                                    result: true,
+                                },
+                                {
+                                    position: 4,
+                                    result: true,
+                                },
+                                {
+                                    position: 5,
+                                    result: true,
+                                },
+                                {
+                                    position: 6,
+                                    result: true,
+                                },
+                            ]
 
-                        inputs.forEach(
-                            input => {
-                                chai.assert.equal(
-                                    ifVowelsBeforeAndAfter(
-                                        input.position,
-                                        word
-                                    ),
-                                    input.result
-                                )
-                            }
-                        )
-                    }
-                )
+                            inputs.forEach(
+                                input => {
+                                    chai.assert.equal(
+                                        ifVowelsBeforeAndAfter(
+                                            input.position,
+                                            word
+                                        ),
+                                        input.result
+                                    )
+                                }
+                            )
+                        }
+                    )
+                }
 
-                it(
-                    'страх', () => {
-                        const word = 'страх'.split('')
+                {
+                    const word = 'страх'
 
-                        const inputs = [
-                            {
-                                position: 0,
-                                result: true,
-                            },
-                            {
-                                position: 1,
-                                result: true,
-                            },
-                            {
-                                position: 2,
-                                result: true,
-                            },
-                            {
-                                position: 3,
-                                result: true,
-                            },
-                        ]
+                    it(
+                        word, () => {
+                            const inputs = [
+                                {
+                                    position: 0,
+                                    result: true,
+                                },
+                                {
+                                    position: 1,
+                                    result: true,
+                                },
+                                {
+                                    position: 2,
+                                    result: true,
+                                },
+                                {
+                                    position: 3,
+                                    result: true,
+                                },
+                            ]
 
-                        inputs.forEach(
-                            input => {
-                                chai.assert.equal(
-                                    ifVowelsBeforeAndAfter(
-                                        input.position,
-                                        word
-                                    ),
-                                    input.result
-                                )
-                            }
-                        )
-                    }
-                )
+                            inputs.forEach(
+                                input => {
+                                    chai.assert.equal(
+                                        ifVowelsBeforeAndAfter(
+                                            input.position,
+                                            word
+                                        ),
+                                        input.result
+                                    )
+                                }
+                            )
+                        }
+                    )
+                }
             }
         )
     }
