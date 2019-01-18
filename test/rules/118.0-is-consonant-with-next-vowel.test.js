@@ -66,6 +66,52 @@ describe(
                             false,  // ь
                         ],
                     },
+                    {
+                        input: 'любовь',
+                        expectedOutput: [
+                            true,   // л
+                            false,  // ю
+                            true,   // б
+                            false,  // о
+                            false,  // в
+                            false,  // ь
+                        ],
+                    },
+                    {
+                        input: 'дяденька',
+                        expectedOutput: [
+                            true,   // д
+                            false,  // я
+                            true,   // д
+                            false,  // е
+                            false,  // н
+                            false,  // ь
+                            true,   // к
+                            false,  // а
+                        ],
+                    },
+                    {
+                        input: 'ребята',
+                        expectedOutput: [
+                            true,   // р
+                            false,  // е
+                            true,   // б
+                            false,  // я
+                            true,   // т
+                            false,  // а
+                        ],
+                    },
+                    {
+                        input: 'пастух',
+                        expectedOutput: [
+                            true,   // п
+                            false,  // а
+                            false,  // с
+                            true,   // т
+                            false,  // у
+                            false,  // х
+                        ],
+                    },
                 ]
 
                 testCaseArr.forEach(
