@@ -35,6 +35,30 @@ describe(
                             false,  // й
                         ],
                     },
+                    {
+                        inputWord: 'фейерверк',
+                        expectedOutput: [
+                            false,  // ф
+                            true,   // е
+                            false,  // й
+                            false,  // е
+                            false,  // р
+                            false,  // в
+                            false,  // е
+                            false,  // р
+                            false,  // к
+                        ],
+                    },
+                    {
+                        inputWord: 'майор',
+                        expectedOutput: [
+                            false,  // м
+                            true,   // а
+                            false,  // й
+                            false,  // о
+                            false,  // р
+                        ],
+                    },
                 ]
 
                 testCaseArr.forEach(
