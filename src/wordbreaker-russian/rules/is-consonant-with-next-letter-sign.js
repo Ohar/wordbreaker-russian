@@ -3,11 +3,11 @@
 
 import getLetter from './../utils/get-letter'
 import isConsonant from './../utils/is-consonant'
+import isSign from './../utils/is-sign'
 
 export default function isConsonantWithNextLetterSign (pos, arr) {
-    const cur              = getLetter(pos, arr)
-    const next             = getLetter(pos + 1, arr)
-    const isNextLetterSign = next === 'ь' || next === 'ъ'
+    const curr = getLetter(pos, arr)
+    const next = getLetter(pos + 1, arr)
 
-    return isConsonant(cur) && isNextLetterSign
+    return isConsonant(curr) && isSign(next)
 }
