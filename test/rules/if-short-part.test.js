@@ -2,51 +2,62 @@ import chai from 'chai'
 import ifShortPart from '@/wordbreaker-russian/rules/if-short-part'
 
 describe(
-    'ifShortPart', () => {
+    'ifShortPart',
+    () => {
         it(
-            'Это функция', () => {
-                chai.assert.isFunction(ifShortPart)
-            }
+            'Это функция',
+            () => chai.assert.isFunction(ifShortPart)
         )
 
-        it(
-            'Правильно работает', () => {
-                const inputs = [
+        describe(
+            'Правильно работает',
+            () => {
+                const testCaseArr = [
                     {
-                        position: 0,
-                        word: 'акация',
-                        result: true,
+                        inputWord: 'секуляризм',
+                        expectedOutput: [
+                            true,   // с
+                            false,  // е
+                            false,  // к
+                            false,  // у
+                            false,  // л
+                            false,  // я
+                            false,  // р
+                            false,  // и
+                            true,   // з
+                            true,   // м
+                        ],
                     },
                     {
-                        position: 1,
-                        word: 'акация',
-                        result: false,
-                    },
-                    {
-                        position: 2,
-                        word: 'акация',
-                        result: false,
-                    },
-                    {
-                        position: 3,
-                        word: 'акация',
-                        result: false,
-                    },
-                    {
-                        position: 4,
-                        word: 'акация',
-                        result: true,
+                        inputWord: 'акация',
+                        expectedOutput: [
+                            true,   // а
+                            false,  // к
+                            false,  // а
+                            false,  // ц
+                            true,   // и
+                            true,   // я
+                        ],
                     },
                 ]
 
-                inputs.forEach(
-                    input => {
-                        chai.assert.equal(
-                            ifShortPart(
-                                input.position,
-                                input.word.split('')
-                            ),
-                            input.result
+                testCaseArr.forEach(
+                    ({inputWord, expectedOutput}) => {
+                        it(
+                            inputWord,
+                            () => {
+                                expectedOutput.forEach(
+                                    (result, i) => {
+                                        chai.assert.equal(
+                                            ifShortPart(
+                                                i,
+                                                inputWord
+                                            ),
+                                            result
+                                        )
+                                    }
+                                )
+                            }
                         )
                     }
                 )
