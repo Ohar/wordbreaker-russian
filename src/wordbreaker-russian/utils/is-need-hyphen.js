@@ -8,7 +8,7 @@ import isConsonantWithNextVowel from './../rules/is-consonant-with-next-vowel'
 import isConsonantWithNextLetterSign from './../rules/is-consonant-with-next-letter-sign'
 import isDoubleConsonantWithVowels from './../rules/is-double-consonant-with-vowels'
 
-export default function isNeedHyphen(pos, arr) {
+export default function isNeedHyphen (pos, arr) {
     return (
         ifVowelsBeforeAndAfter(pos, arr) && // 117
         !isConsonantWithNextVowel(pos, arr) && // 118.0
