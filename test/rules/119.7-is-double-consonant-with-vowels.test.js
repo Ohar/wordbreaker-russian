@@ -94,6 +94,39 @@ describe(
                             false,  // ь
                         ],
                     },
+                    {
+                        inputWord: 'жужжать',
+                        expectedOutput: [
+                            false,  // ж
+                            true,   // у
+                            false,  // ж
+                            true,   // ж
+                            false,  // а
+                            false,  // т
+                            false,  // ь
+                        ],
+                    },
+                    {
+                        inputWord: 'масса',
+                        expectedOutput: [
+                            false,  // м
+                            true,   // а
+                            false,  // с
+                            true,   // с
+                            false,  // а
+                        ],
+                    },
+                    {
+                        inputWord: 'конный',
+                        expectedOutput: [
+                            false,  // к
+                            true,   // о
+                            false,  // н
+                            true,   // н
+                            false,  // ы
+                            false,  // й
+                        ],
+                    },
                 ]
 
                 testCaseArr.forEach(
