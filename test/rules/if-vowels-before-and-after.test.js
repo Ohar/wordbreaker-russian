@@ -16,57 +16,52 @@ describe(
             () => {
                 const testCaseArr = [
                     {
+                        inputWord: 'околоток',
+                        expectedOutputData: [
+                            true,
+                            true,
+                            true,
+                            true,
+                            true,
+                            true,
+                            false,
+                            false,
+                        ],
+                    },
+                    {
                         inputWord: 'просмотр',
                         expectedOutputData: [
-                            {
-                                position: 0,
-                                result: true,
-                            },
-                            {
-                                position: 1,
-                                result: true,
-                            },
-                            {
-                                position: 2,
-                                result: false,
-                            },
-                            {
-                                position: 3,
-                                result: true,
-                            },
-                            {
-                                position: 4,
-                                result: true,
-                            },
-                            {
-                                position: 5,
-                                result: true,
-                            },
-                            {
-                                position: 6,
-                                result: true,
-                            },
+                            false,
+                            false,
+                            true,
+                            true,
+                            true,
+                            false,
+                            false,
+                            false,
                         ],
                     },
                     {
                         inputWord: 'страх',
                         expectedOutputData: [
-                            {
-                                position: 0,
-                                result: true,
-                            },
-                            {
-                                position: 1,
-                                result: true,
-                            },
-                            {
-                                position: 2,
-                                result: true,
-                            },
-                            {
-                                position: 3,
-                                result: true,
-                            },
+                            false,
+                            false,
+                            false,
+                            false,
+                            false,
+                        ],
+                    },
+                    {
+                        inputWord: 'ноосфера',
+                        expectedOutputData: [
+                            false,
+                            true,
+                            true,
+                            true,
+                            true,
+                            true,
+                            true,
+                            false,
                         ],
                     },
                 ]
@@ -77,10 +72,10 @@ describe(
                             inputWord,
                             () => {
                                 expectedOutputData.forEach(
-                                    ({position, result}) => {
+                                    (result, i) => {
                                         chai.assert.equal(
                                             ifVowelsBeforeAndAfter(
-                                                position,
+                                                i,
                                                 inputWord
                                             ),
                                             result
