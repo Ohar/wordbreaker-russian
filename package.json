@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/Ohar/wordbreaker-russian/issues"
   },
-  "homepage": "https://github.com/Ohar/wordbreaker-russian#readme",
+  "homepage": "https://ohar.github.io/wordbreaker-russian/",
   "devDependencies": {
     "@types/jest": "^23.3.12",
     "babel-cli": "^6.24.1",
