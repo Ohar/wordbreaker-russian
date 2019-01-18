@@ -17,7 +17,7 @@ describe(
                 const testCaseArr = [
                     {
                         inputWord: 'околоток',
-                        expectedOutputData: [
+                        expectedOutput: [
                             true,
                             true,
                             true,
@@ -30,7 +30,7 @@ describe(
                     },
                     {
                         inputWord: 'просмотр',
-                        expectedOutputData: [
+                        expectedOutput: [
                             false,
                             false,
                             true,
@@ -43,7 +43,7 @@ describe(
                     },
                     {
                         inputWord: 'страх',
-                        expectedOutputData: [
+                        expectedOutput: [
                             false,
                             false,
                             false,
@@ -53,7 +53,7 @@ describe(
                     },
                     {
                         inputWord: 'ноосфера',
-                        expectedOutputData: [
+                        expectedOutput: [
                             false,
                             true,
                             true,
@@ -67,11 +67,11 @@ describe(
                 ]
 
                 testCaseArr.forEach(
-                    ({inputWord, expectedOutputData}) => {
+                    ({inputWord, expectedOutput}) => {
                         it(
                             inputWord,
                             () => {
-                                expectedOutputData.forEach(
+                                expectedOutput.forEach(
                                     (result, i) => {
                                         chai.assert.equal(
                                             ifVowelsBeforeAndAfter(
