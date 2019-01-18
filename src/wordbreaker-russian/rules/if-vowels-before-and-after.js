@@ -4,19 +4,19 @@
 
 import isVowel from './../utils/is-vowel'
 
-export default function ifVowelsBeforeAndAfter (pos, arr) {
+export default function ifVowelsBeforeAndAfter (pos, word) {
     let before = false
     let after  = false
 
-    for (let i = pos + 1; i < arr.length; i++) {
-        if (isVowel(arr[i])) {
+    for (let i = pos + 1; i < word.length; i++) {
+        if (isVowel(word[i])) {
             after = true
             break
         }
     }
 
     for (let i = pos; i >= 0; i--) {
-        if (isVowel(arr[i])) {
+        if (isVowel(word[i])) {
             before = true
             break
         }
