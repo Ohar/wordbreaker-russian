@@ -4,93 +4,54 @@ import ifInsideOneSyllablePrefixWithNextConsonant from '@/wordbreaker-russian/ru
 describe(
     'ifInsideOneSyllablePrefixWithNextConsonant', () => {
         it(
-            'Это функция', () => {
-                chai.assert.isFunction(ifInsideOneSyllablePrefixWithNextConsonant)
-            }
+            'Это функция',
+            () => chai.assert.isFunction(ifInsideOneSyllablePrefixWithNextConsonant)
         )
 
         describe(
-            'Правильно работает', () => {
-                it(
-                    'подбить', () => {
-                        const word = 'подбить'.split('')
+            'Правильно работает',
+            () => {
+                const testCaseArr = [
+                    {
+                        inputWord: 'подбить',
+                        expectedOutput: [
+                            true,   // п
+                            true,   // о
+                            false,  // д
+                            false,  // б
+                            false,  // и
+                            false,  // т
+                            false,  // ь
+                        ],
+                    },
+                    {
+                        inputWord: 'размах',
+                        expectedOutput: [
+                            true,   // р
+                            true,   // а
+                            false,  // з
+                            false,  // м
+                            false,  // а
+                            false,  // х
+                        ],
+                    },
+                ]
 
-                        const inputs = [
-                            {
-                                position: 0,
-                                result: true,
-                            },
-                            {
-                                position: 1,
-                                result: true,
-                            },
-                            {
-                                position: 2,
-                                result: false,
-                            },
-                            {
-                                position: 3,
-                                result: false,
-                            },
-                            {
-                                position: 4,
-                                result: false,
-                            },
-                            {
-                                position: 5,
-                                result: false,
-                            },
-                        ]
-
-                        inputs.forEach(
-                            input => {
-                                chai.assert.equal(
-                                    ifInsideOneSyllablePrefixWithNextConsonant(
-                                        input.position,
-                                        word
-                                    ),
-                                    input.result
-                                )
-                            }
-                        )
-                    }
-                )
-
-                it(
-                    'размах', () => {
-                        const word = 'размах'.split('')
-
-                        const inputs = [
-                            {
-                                position: 0,
-                                result: true,
-                            },
-                            {
-                                position: 1,
-                                result: true,
-                            },
-                            {
-                                position: 2,
-                                result: false,
-                            },
-                            {
-                                position: 3,
-                                result: false,
-                            },
-                            {
-                                position: 4,
-                                result: false,
-                            },
-                        ]
-
-                        inputs.forEach(
-                            input => {
-                                chai.assert.equal(
-                                    ifInsideOneSyllablePrefixWithNextConsonant(
-                                        input.position,
-                                        word
-                                    ),
-                                    input.result
+                testCaseArr.forEach(
+                    ({inputWord, expectedOutput}) => {
+                        it(
+                            inputWord,
+                            () => {
+                                expectedOutput.forEach(
+                                    (result, i) => {
+                                        chai.assert.equal(
+                                            ifInsideOneSyllablePrefixWithNextConsonant(
+                                                i,
+                                                inputWord
+                                            ),
+                                            result
+                                        )
+                                    }
                                 )
                             }
                         )
