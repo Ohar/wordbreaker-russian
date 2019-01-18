@@ -2,39 +2,49 @@
 
 import chai from 'chai'
 import wordbreakerRussian from '@/wordbreaker-russian/index'
+import SOFT_HYPHEN from '@/wordbreaker-russian/consts/soft-hyphen'
 
 describe(
-    'wordbreakerRussian', () => {
+    'wordbreakerRussian',
+    () => {
         it(
-            'Это функция', () => {
-                chai.assert.isFunction(wordbreakerRussian)
-            }
+            'Это функция',
+            () => chai.assert.isFunction(wordbreakerRussian)
         )
 
         it(
-            'Возвращает строку', () => {
-                chai.assert.isString(wordbreakerRussian('test'))
-            }
+            'Возвращает строку',
+            () => chai.assert.isString(wordbreakerRussian('test'))
         )
 
-        // TODO: Написать тесты на все правила
         describe(
-            'Правильно расставляет переносы', () => {
-                it(
-                    'собака → со­ба­ка', () => {
-                        chai.assert.equal(wordbreakerRussian('собака'), 'со­ба­ка')
-                    }
-                )
+            'Правильно расставляет переносы',
+            () => {
+                // TODO: Написать тесты на все правила
+                const testData = [
+                    {
+                        input: 'собака',
+                        expectedOutput: `со${SOFT_HYPHEN}ба${SOFT_HYPHEN}ка`,
+                    },
+                    {
+                        input: 'кот',
+                        expectedOutput: 'кот',
+                    },
+                    {
+                        input: 'Колорадо',
+                        expectedOutput: `Ко${SOFT_HYPHEN}ло${SOFT_HYPHEN}ра${SOFT_HYPHEN}до`,
+                    },
+                ]
 
-                it(
-                    'кот → кот', () => {
-                        chai.assert.equal(wordbreakerRussian('кот'), 'кот')
-                    }
-                )
-
-                it(
-                    'Колорадо → Ко­ло­ра­до', () => {
-                        chai.assert.equal(wordbreakerRussian('Колорадо'), 'Ко­ло­ра­до')
+                testData.forEach(
+                    ({input, expectedOutput}) => {
+                        it(
+                            `${input} → ${expectedOutput}`,
+                            () => chai.assert.equal(
+                                wordbreakerRussian(input),
+                                expectedOutput
+                            )
+                        )
                     }
                 )
             }
