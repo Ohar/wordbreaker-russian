@@ -4,8 +4,8 @@
   "description": "Расстановщик мягких переносов для русского языка",
   "main": "src/wordbreaker-russian",
   "scripts": {
-    "build": "webpack",
-    "buildprod": "cross-env PROD_ENV=1 webpack",
+    "start": "webpack",
+    "build:demo": "cross-env PROD_ENV=1 webpack",
     "test": "mocha --recursive -w -r esm"
   },
   "repository": {
