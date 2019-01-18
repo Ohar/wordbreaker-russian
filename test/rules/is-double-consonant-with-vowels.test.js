@@ -1,7 +1,4 @@
-'use strict'
-
 import chai from 'chai'
-
 import isDoubleConsonantWithVowels from '@/wordbreaker-russian/rules/is-double-consonant-with-vowels'
 
 describe(

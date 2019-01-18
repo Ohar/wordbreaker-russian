@@ -1,5 +1,3 @@
-'use strict'
-
 import chai from 'chai'
 import wordbreakerRussian from '@/wordbreaker-russian/index'
 import SOFT_HYPHEN from '@/wordbreaker-russian/consts/soft-hyphen'

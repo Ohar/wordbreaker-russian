@@ -1,7 +1,4 @@
-'use strict'
-
 import chai from 'chai'
-
 import isConsonantWithNextLetterSign from '@/wordbreaker-russian/rules/is-consonant-with-next-letter-sign'
 
 describe(
