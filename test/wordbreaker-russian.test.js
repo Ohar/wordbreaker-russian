@@ -1,6 +1,6 @@
 import chai from 'chai'
 import wordbreakerRussian from '@/wordbreaker-russian/index'
-import SOFT_HYPHEN from '@/wordbreaker-russian/consts/soft-hyphen'
+import {HYPHEN_SOFT} from '@/wordbreaker-russian/consts/symbolDict'
 
 describe(
     'wordbreakerRussian',
@@ -22,7 +22,7 @@ describe(
                 const testData = [
                     {
                         input: 'собака',
-                        expectedOutput: `со${SOFT_HYPHEN}ба${SOFT_HYPHEN}ка`,
+                        expectedOutput: `со${HYPHEN_SOFT}ба${HYPHEN_SOFT}ка`,
                     },
                     {
                         input: 'кот',
@@ -30,7 +30,7 @@ describe(
                     },
                     {
                         input: 'Колорадо',
-                        expectedOutput: `Ко${SOFT_HYPHEN}ло${SOFT_HYPHEN}ра${SOFT_HYPHEN}до`,
+                        expectedOutput: `Ко${HYPHEN_SOFT}ло${HYPHEN_SOFT}ра${HYPHEN_SOFT}до`,
                     },
                 ]
 

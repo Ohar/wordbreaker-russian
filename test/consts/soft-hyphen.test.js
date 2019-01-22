@@ -1,17 +1,17 @@
 import chai from 'chai'
-import SOFT_HYPHEN from '@/wordbreaker-russian/consts/soft-hyphen'
+import {HYPHEN_SOFT} from '@/wordbreaker-russian/consts/symbolDict'
 
 describe(
-    'SOFT_HYPHEN', () => {
+    'HYPHEN_SOFT', () => {
         it(
             'Возвращает строку', () => {
-                chai.assert.isString(SOFT_HYPHEN)
+                chai.assert.isString(HYPHEN_SOFT)
             }
         )
 
         it(
             'Строка непустая', () => {
-                chai.assert.isAtLeast(SOFT_HYPHEN.length, 1)
+                chai.assert.isAtLeast(HYPHEN_SOFT.length, 1)
             }
         )
     }
