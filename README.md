@@ -1,4 +1,9 @@
 # Wordbreaker (Russian)
+[![NPM version](https://img.shields.io/npm/v/wordbreaker-russian.svg)](https://www.npmjs.com/package/wordbreaker-russian)
+[![License: MIT](https://img.shields.io/npm/l/wordbreaker-russian.svg)](https://www.npmjs.com/package/wordbreaker-russian)
+[![Node version](https://img.shields.io/node/v/wordbreaker-russian.svg)](https://www.npmjs.com/package/wordbreaker-russian)
+[![install size](https://packagephobia.now.sh/badge?p=wordbreaker-russian)](https://packagephobia.now.sh/result?p=wordbreaker-russian)
+
 _Бывший jQuery.WordWrapper.js_
 
 Расстановщик мягких переносов для русского языка
